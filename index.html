@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galaxy Miner Game</title>
+    <style>
+        body { background: radial-gradient(circle, #000428, #004e92); color: gold; text-align: center; font-family: 'Courier New', monospace; height: 100vh; overflow: hidden; }
+        .planet { width: 250px; cursor: pointer; transition: transform 0.1s; margin-top: 50px; }
+        .planet:active { transform: scale(0.9); }
+        #balance { font-size: 40px; text-shadow: 2px 2px #ff0000; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 GALAXY MINER 🚀</h1>
+    <div id="balance">5,000</div>
+    <img src="https://cdn-icons-png.flaticon.com/512/2534/2534002.png" class="planet" onclick="mine()">
+    <p>TAP THE PLANET TO MINE</p>
+
+    <script>
+        let count = 5000;
+        function mine() {
+            count += 10;
+            document.getElementById('balance').innerText = count.toLocaleString();
+        }
+    </script>
+</body>
+</html>
