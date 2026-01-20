@@ -6,119 +6,177 @@
     <title>Galaxy Miner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
         body {
-            background: #b30000; /* Dark Red Background */
-            font-family: 'Arial', sans-serif;
+            background-color: #7a0000; /* Deep Red Theme */
+            background-image: radial-gradient(circle at top, #b30000 0%, #4a0000 100%);
             margin: 0;
             padding: 0;
+            font-family: 'Montserrat', sans-serif;
             color: white;
-            padding-bottom: 80px;
+            padding-bottom: 90px;
+            overflow-x: hidden;
         }
 
-        /* Top Header */
-        .header {
+        /* Top Bar Profile */
+        .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            background: rgba(0,0,0,0.1);
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        .user-info { display: flex; align-items: center; gap: 10px; font-weight: bold; }
-        .balance-badges { display: flex; gap: 8px; }
-        .badge {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 10px;
-            border-radius: 15px;
+        .user-section { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+        .currency-section { display: flex; gap: 8px; }
+        .balance-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Main Buttons (Cards) */
-        .container { padding: 15px; display: flex; flex-direction: column; gap: 12px; }
+        /* Main Container */
+        .main-menu {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-        .card {
-            background: linear-gradient(90deg, #ff4d4d, #d10000);
-            border-radius: 15px;
-            padding: 20px;
+        /* Virus Bot Style Cards */
+        .menu-card {
+            height: 110px;
+            border-radius: 24px;
+            padding: 0 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             position: relative;
+            box-shadow: 0 8px 0px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: white;
             cursor: pointer;
+            transition: transform 0.1s;
         }
 
-        .card h3 { margin: 0; font-size: 22px; font-style: italic; font-weight: 900; }
-        .card p { margin: 5px 0 0; font-size: 11px; color: #ffd1d1; }
-        
-        .card img { width: 70px; height: 70px; }
+        .menu-card:active { transform: translateY(4px); box-shadow: 0 4px 0px rgba(0,0,0,0.2); }
 
-        .yellow-card { background: linear-gradient(90deg, #ffaa00, #ff8800); }
-        .purple-card { background: linear-gradient(90deg, #aa33ff, #8800cc); }
-        .green-card { background: linear-gradient(90deg, #00cc66, #00994d); }
-
-        /* Bottom Menu */
-        .bottom-nav {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            background: #1a1a1a; display: flex; justify-content: space-around;
-            padding: 10px 0; border-top: 1px solid #333;
+        .menu-card h2 {
+            font-size: 26px;
+            margin: 0;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .nav-item { display: flex; flex-direction: column; align-items: center; color: #888; font-size: 10px; }
-        .nav-item.active { color: white; }
-        .nav-item i { font-size: 20px; margin-bottom: 2px; }
+        .menu-card p {
+            margin: 4px 0 0;
+            font-size: 11px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        /* Galaxy Theme Colors & Stickers */
+        .inventory { background: linear-gradient(to right, #ff4d6d, #c9184a); }
+        .roulette { background: linear-gradient(to right, #ffb703, #fb8500); }
+        .minecraft { background: linear-gradient(to right, #ff4d4d, #b30000); border-bottom: 6px solid #2d6a4f; }
+        .upgrades { background: linear-gradient(to right, #00b4d8, #0077b6); }
+
+        .sticker {
+            width: 90px;
+            height: 90px;
+            filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.4));
+        }
+
+        /* Badge NEW! */
+        .new-badge {
+            background: #fff;
+            color: #ff0000;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        /* Bottom Nav Bar */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid #333;
+        }
+
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #666;
+            font-size: 10px;
+            text-decoration: none;
+        }
+
+        .nav-btn.active { color: white; }
+        .nav-btn i { font-size: 22px; margin-bottom: 4px; }
+
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="user-info"><i class="fa-solid fa-arrow-left"></i> Galaxy Miner</div>
-        <div class="balance-badges">
-            <div class="badge"><i class="fa-solid fa-star" style="color:gold;"></i> 123</div>
-            <div class="badge"><i class="fa-solid fa-ticket" style="color:orange;"></i> 2</div>
+    <div class="top-bar">
+        <div class="user-section"><i class="fa-solid fa-chevron-left"></i> Galaxy Miner</div>
+        <div class="currency-section">
+            <div class="balance-box"><i class="fa-solid fa-star" style="color:#ffb703;"></i> 123</div>
+            <div class="balance-box"><i class="fa-solid fa-ticket" style="color:#ff4d6d;"></i> 2</div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="card" onclick="openPage('inventory')">
-            <h3>INVENTORY</h3>
-            <img src="https://cdn-icons-png.flaticon.com/512/2859/2859731.png"> </div>
+    <div class="main-menu">
+        <div class="menu-card inventory" onclick="console.log('Open Inventory')">
+            <h2>INVENTORY</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/2859/2859731.png" class="sticker">
+        </div>
 
-        <div class="card yellow-card" onclick="openPage('spin')">
+        <div class="menu-card roulette" onclick="console.log('Open Roulette')">
             <div>
-                <h3>ROULETTE</h3>
+                <h2>ROULETTE</h2>
                 <p>FREE SPIN IN: 10:30:44</p>
             </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/8157/8157777.png"> </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/8157/8157777.png" class="sticker">
+        </div>
 
-        <div class="card green-card">
-            <h3>MINECRAFT</h3>
-            <img src="https://cdn-icons-png.flaticon.com/512/4812/4812581.png"> </div>
-
-        <div class="card purple-card">
+        <div class="menu-card minecraft">
             <div>
-                <h3>GIVEAWAYS</h3>
-                <p>GET A GIFT FOR FREE</p>
+                <h2>MINING</h2>
+                <p>COLLECT CRYSTALS</p>
+                <span class="new-badge">NEW!</span>
             </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png"> </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png" class="sticker"> </div>
+
+        <div class="menu-card upgrades">
+            <h2>UPGRADES</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/4754/4754848.png" class="sticker">
+        </div>
     </div>
 
-    <div class="bottom-nav">
-        <div class="nav-item active"><i class="fa-solid fa-clock"></i><span>Main</span></div>
-        <div class="nav-item"><i class="fa-solid fa-list"></i><span>Tasks</span></div>
-        <div class="nav-item"><i class="fa-solid fa-dharmachakra"></i><span>Spin</span></div>
-        <div class="nav-item"><i class="fa-solid fa-shop"></i><span>Shop</span></div>
-        <div class="nav-item"><i class="fa-solid fa-calendar"></i><span>History</span></div>
-    </div>
+    <nav class="nav-bar">
+        <a href="#" class="nav-btn active"><i class="fa-solid fa-house-chimney"></i><span>Main</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-list-check"></i><span>Tasks</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-dharmachakra"></i><span>Spin</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-store"></i><span>Shop</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-clock-rotate-left"></i><span>History</span></a>
+    </nav>
 
-    <script>
-        function openPage(page) {
-            console.log("Opening " + page);
-            // Hum yahan naye page ka HTML load karenge jo aap batayenge
-        }
-    </script>
 </body>
 </html>
