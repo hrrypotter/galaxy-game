@@ -1,198 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galaxy Miner - NFT Marketplace</title>
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at top, #1b1f3b, #05070f);
-    color: #fff;
-}
-header {
-    padding: 15px;
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    background: #2a2a3f;
-    letter-spacing: 2px;
-}
-.container {
-    padding: 15px;
-}
-.card {
-    background: #2a2a3f;
-    margin: 10px 0;
-    border-radius: 12px;
-    padding: 12px;
-    position: relative;
-}
-.card h3 {
-    margin-top:0;
-    color: #ffcc00;
-}
-button {
-    padding: 10px 15px;
-    margin: 5px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.topup-btn {
-    background: #00ffd5;
-    color: #000;
-}
-.buy-btn {
-    background: #ffd700;
-    color: #000;
-}
-.sell-btn {
-    background: #ff4d4d;
-    color: #fff;
-}
-.tab {
-    display: inline-block;
-    padding: 6px 10px;
-    margin: 2px;
-    background: #3a3a5a;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.tab.active {
-    background: #ffcc00;
-    color: #000;
-}
-.animation {
-    position: absolute;
-    top: -20px; left: 50%; transform: translateX(-50%);
-    font-weight: bold;
-    display: none;
-    animation: rise 1.5s ease forwards;
-}
-@keyframes rise {
-    0% {opacity:1; top:-20px;}
-    100% {opacity:0; top:-60px;}
-}
-input[type=number] {
-    width: 60px; padding:5px; border-radius:5px; border:none;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Galaxy Miner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+        body {
+            background-color: #7a0000; /* Deep Red Theme */
+            background-image: radial-gradient(circle at top, #b30000 0%, #4a0000 100%);
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            padding-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar Profile */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .user-section { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+        .currency-section { display: flex; gap: 8px; }
+        .balance-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Main Container */
+        .main-menu {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Virus Bot Style Cards */
+        .menu-card {
+            height: 110px;
+            border-radius: 24px;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 0px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .menu-card:active { transform: translateY(4px); box-shadow: 0 4px 0px rgba(0,0,0,0.2); }
+
+        .menu-card h2 {
+            font-size: 26px;
+            margin: 0;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .menu-card p {
+            margin: 4px 0 0;
+            font-size: 11px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        /* Galaxy Theme Colors & Stickers */
+        .inventory { background: linear-gradient(to right, #ff4d6d, #c9184a); }
+        .roulette { background: linear-gradient(to right, #ffb703, #fb8500); }
+        .minecraft { background: linear-gradient(to right, #ff4d4d, #b30000); border-bottom: 6px solid #2d6a4f; }
+        .upgrades { background: linear-gradient(to right, #00b4d8, #0077b6); }
+
+        .sticker {
+            width: 90px;
+            height: 90px;
+            filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.4));
+        }
+
+        /* Badge NEW! */
+        .new-badge {
+            background: #fff;
+            color: #ff0000;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        /* Bottom Nav Bar */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid #333;
+        }
+
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #666;
+            font-size: 10px;
+            text-decoration: none;
+        }
+
+        .nav-btn.active { color: white; }
+        .nav-btn i { font-size: 22px; margin-bottom: 4px; }
+
+    </style>
 </head>
 <body>
 
-<header>🚀 Galaxy Miner</header>
-<div class="container">
-
-<!-- User Profile -->
-<div class="card">
-    <div>⭐ Stars: <span id="starCount">500</span></div>
-    <div>🌌 Galaxy Miner: <span id="galaxyCount">231,503</span> (Coming Soon)</div>
-</div>
-
-<!-- Top-Up Section -->
-<div class="card">
-    <h3>Top-Up Stars</h3>
-    <button class="topup-btn" onclick="topUpStars(50)">50 ⭐</button>
-    <button class="topup-btn" onclick="topUpStars(120)">120 ⭐</button>
-    <button class="topup-btn" onclick="topUpStars(700)">700 ⭐</button>
-    <button class="topup-btn" onclick="topUpStars(1600)">1600 ⭐</button>
-</div>
-
-<!-- NFT Marketplace -->
-<div class="card">
-    <h3>NFT Marketplace</h3>
-    <div>
-        <span class="tab active" onclick="openTab('buy')">Buy NFT</span>
-        <span class="tab" onclick="openTab('sell')">Sell NFT</span>
-    </div>
-    <div id="buyTab">
-        <div class="card">
-            <img src="https://i.ibb.co/5W2sF8B/virus-nft.png" alt="NFT" width="60">
-            <span class="price">Price: 8888 ⭐</span>
-            <button class="buy-btn" onclick="buyNFT('Virus NFT',8888)">Buy</button>
-            <div class="animation" id="buyAnim">+ NFT Purchased!</div>
+    <div class="top-bar">
+        <div class="user-section"><i class="fa-solid fa-chevron-left"></i> Galaxy Miner</div>
+        <div class="currency-section">
+            <div class="balance-box"><i class="fa-solid fa-star" style="color:#ffb703;"></i> 123</div>
+            <div class="balance-box"><i class="fa-solid fa-ticket" style="color:#ff4d6d;"></i> 2</div>
         </div>
     </div>
-    <div id="sellTab" style="display:none;">
-        <div class="card">
-            <img src="https://i.ibb.co/5W2sF8B/virus-nft.png" alt="NFT" width="60">
-            <span class="price">Sell Price: 6000 ⭐</span>
-            <button class="sell-btn" onclick="sellNFT('Virus NFT',6000)">Sell</button>
-            <div class="animation" id="sellAnim">💰 NFT Sold!</div>
+
+    <div class="main-menu">
+        <div class="menu-card inventory" onclick="console.log('Open Inventory')">
+            <h2>INVENTORY</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/2859/2859731.png" class="sticker">
+        </div>
+
+        <div class="menu-card roulette" onclick="console.log('Open Roulette')">
+            <div>
+                <h2>ROULETTE</h2>
+                <p>FREE SPIN IN: 10:30:44</p>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/8157/8157777.png" class="sticker">
+        </div>
+
+        <div class="menu-card minecraft">
+            <div>
+                <h2>MINING</h2>
+                <p>COLLECT CRYSTALS</p>
+                <span class="new-badge">NEW!</span>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png" class="sticker"> </div>
+
+        <div class="menu-card upgrades">
+            <h2>UPGRADES</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/4754/4754848.png" class="sticker">
         </div>
     </div>
-</div>
 
-<!-- User Profit -->
-<div class="card">
-    <h3>User Profit & Stats</h3>
-    <div>⭐ Total Stars Earned: <span id="profitStars">0</span></div>
-    <div>🎁 Total NFTs Owned: <span id="totalNFTs">0</span></div>
-</div>
-
-</div>
-
-<script>
-// User Data
-let star = 500;
-let galaxy = 231503; // Coming Soon
-let totalProfit = 0;
-let userNFTs = 0;
-
-// Tabs
-function openTab(tab){
-    document.getElementById('buyTab').style.display = tab==='buy'?'block':'none';
-    document.getElementById('sellTab').style.display = tab==='sell'?'block':'none';
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    if(tab==='buy') document.querySelectorAll('.tab')[0].classList.add('active');
-    else document.querySelectorAll('.tab')[1].classList.add('active');
-}
-
-// Top-Up
-function topUpStars(amount){
-    star += amount;
-    totalProfit += amount;
-    document.getElementById('starCount').innerText = star;
-    document.getElementById('profitStars').innerText = totalProfit;
-    alert(`✅ Top-Up Successful! +${amount} ⭐`);
-}
-
-// Buy NFT
-function buyNFT(name, price){
-    if(star>=price){
-        star -= price;
-        userNFTs += 1;
-        document.getElementById('starCount').innerText = star;
-        document.getElementById('totalNFTs').innerText = userNFTs;
-        showAnimation('buyAnim');
-    } else {
-        alert("❌ Not enough Stars!");
-    }
-}
-
-// Sell NFT
-function sellNFT(name, price){
-    if(userNFTs>0){
-        star += price;
-        userNFTs -=1;
-        document.getElementById('starCount').innerText = star;
-        document.getElementById('totalNFTs').innerText = userNFTs;
-        showAnimation('sellAnim');
-    } else {
-        alert("❌ No NFTs to sell!");
-    }
-}
-
-// Show animation
-function showAnimation(id){
-    const anim = document.getElementById(id);
-    anim.style.display='block';
-    setTimeout(()=>{anim.style.display='none';},1500);
-}
-</script>
+    <nav class="nav-bar">
+        <a href="#" class="nav-btn active"><i class="fa-solid fa-house-chimney"></i><span>Main</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-list-check"></i><span>Tasks</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-dharmachakra"></i><span>Spin</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-store"></i><span>Shop</span></a>
+        <a href="#" class="nav-btn"><i class="fa-solid fa-clock-rotate-left"></i><span>History</span></a>
+    </nav>
 
 </body>
 </html>
