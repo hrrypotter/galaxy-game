@@ -2,119 +2,172 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Galaxy Miner</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Galaxy Miner - NFT Marketplace</title>
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at top, #1b1f3b, #05070f);
-    color: white;
+    font-family: 'Arial', sans-serif;
+    background: #1b1b2f;
+    color: #fff;
+    margin: 0; padding: 0;
 }
-
-h1 {
+header {
+    padding: 10px;
+    background: #2a2a3f;
     text-align: center;
-    color: #00ffe1;
-    margin: 20px 0;
-    letter-spacing: 2px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-
-.category {
-    background: linear-gradient(145deg, #12172c, #1a2040);
-    margin: 15px;
-    border-radius: 18px;
-    padding: 16px;
-    box-shadow: 0 0 15px rgba(0,255,225,0.15);
+.container { padding: 15px; }
+button {
+    padding: 10px 20px;
+    background: #ffcc00;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
 }
-
-.category h2 {
-    margin: 0 0 10px;
-    color: #ffd86b;
-    font-size: 18px;
+.card {
+    background: #2a2a3f;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    position: relative;
 }
-
-.sub {
-    background: rgba(255,255,255,0.06);
-    padding: 12px;
-    border-radius: 12px;
-    margin: 8px 0;
-    font-size: 14px;
-    border-left: 3px solid #00ffe1;
+.card img { width: 60px; vertical-align: middle; }
+.card .price { font-weight: bold; margin-left: 10px; }
+.animation {
+    position: absolute;
+    top: -20px; left: 50%; transform: translateX(-50%);
+    color: #00ff00; font-weight: bold;
+    display: none;
+    animation: rise 1.5s ease forwards;
 }
+@keyframes rise {
+    0% {opacity:1; top:-20px;}
+    100% {opacity:0; top:-60px;}
+}
+input[type=number] {
+    width: 60px; padding:5px; border-radius:5px; border:none;
+}
+.tab { display: inline-block; padding:8px 12px; cursor:pointer; border-radius:5px; margin:2px; background:#3a3a5a; }
+.tab.active { background:#ffcc00; color:#000; }
 </style>
 </head>
-
 <body>
 
-<h1>🚀 GALAXY MINER</h1>
+<header>Galaxy Miner - NFT Marketplace</header>
+<div class="container">
 
-<!-- 1 -->
-<div class="category">
-    <h2>🧰 Inventory Bay</h2>
-    <div class="sub">⛏️ Mining Tools</div>
-    <div class="sub">💎 Collected Crystals</div>
-    <div class="sub">🔋 Energy Cells</div>
+<!-- User Profile -->
+<div class="card">
+    <div>⭐ Stars: <span id="starCount">500</span></div>
+    <div>🌌 Galaxy Miner: <span id="galaxyCount">231,503</span> (Coming Soon)</div>
 </div>
 
-<!-- 2 -->
-<div class="category">
-    <h2>🎡 Quantum Roulette</h2>
-    <div class="sub">🌠 Free Spin Timer</div>
-    <div class="sub">💰 Reward Multiplier</div>
+<!-- Top-Up Section -->
+<div class="card">
+    <h3>Top-Up Stars</h3>
+    <button onclick="topUpStars(50)">50 ⭐</button>
+    <button onclick="topUpStars(120)">120 ⭐</button>
+    <button onclick="topUpStars(700)">700 ⭐</button>
+    <button onclick="topUpStars(1600)">1600 ⭐</button>
 </div>
 
-<!-- 3 -->
-<div class="category">
-    <h2>🪐 Planet Mining</h2>
-    <div class="sub">🌍 Earth Sector</div>
-    <div class="sub">🔥 Mars Sector</div>
-    <div class="sub">❄️ Ice Planet</div>
+<!-- NFT Marketplace -->
+<div class="card">
+    <h3>NFT Marketplace</h3>
+    <div>
+        <span class="tab active" onclick="openTab('buy')">Buy NFT</span>
+        <span class="tab" onclick="openTab('sell')">Sell NFT</span>
+    </div>
+    <div id="buyTab">
+        <div class="card">
+            <img src="https://i.ibb.co/5W2sF8B/virus-nft.png" alt="NFT">
+            <span class="price">Price: 8888 ⭐</span>
+            <button onclick="buyNFT('Virus NFT',8888)">Buy</button>
+            <div class="animation" id="buyAnim">+ NFT Purchased!</div>
+        </div>
+    </div>
+    <div id="sellTab" style="display:none;">
+        <div class="card">
+            <img src="https://i.ibb.co/5W2sF8B/virus-nft.png" alt="NFT">
+            <span class="price">Sell Price: 6000 ⭐</span>
+            <button onclick="sellNFT('Virus NFT',6000)">Sell</button>
+            <div class="animation" id="sellAnim">💰 NFT Sold!</div>
+        </div>
+    </div>
 </div>
 
-<!-- 4 -->
-<div class="category">
-    <h2>☢️ Risk Zone 50/50</h2>
-    <div class="sub">⚡ Double or Lose</div>
-    <div class="sub">🎯 High Risk Mining</div>
+<!-- User Profit -->
+<div class="card">
+    <h3>User Profit & Stats</h3>
+    <div>⭐ Total Stars Earned: <span id="profitStars">0</span></div>
+    <div>🎁 Total NFTs Owned: <span id="totalNFTs">0</span></div>
 </div>
 
-<!-- 5 -->
-<div class="category">
-    <h2>📦 Cosmic Cases</h2>
-    <div class="sub">🟢 Basic Crate</div>
-    <div class="sub">🔵 Rare Crate</div>
-    <div class="sub">🟣 Legendary Crate</div>
 </div>
 
-<!-- 6 -->
-<div class="category">
-    <h2>⬆️ Ship Upgrades</h2>
-    <div class="sub">🚀 Mining Speed</div>
-    <div class="sub">🔋 Energy Capacity</div>
-    <div class="sub">💎 Luck Booster</div>
-</div>
+<script>
+// User Data
+let star = 500;
+let galaxy = 231503; // Coming Soon
+let totalProfit = 0;
+let userNFTs = 0;
 
-<!-- 7 -->
-<div class="category">
-    <h2>🏆 Galactic Giveaways</h2>
-    <div class="sub">🎁 Daily Rewards</div>
-    <div class="sub">👑 Event Prizes</div>
-</div>
+// Tabs
+function openTab(tab) {
+    document.getElementById('buyTab').style.display = tab==='buy' ? 'block':'none';
+    document.getElementById('sellTab').style.display = tab==='sell' ? 'block':'none';
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    if(tab==='buy') document.querySelectorAll('.tab')[0].classList.add('active');
+    else document.querySelectorAll('.tab')[1].classList.add('active');
+}
 
-<!-- 8 -->
-<div class="category">
-    <h2>⚫ Dark Space Roulette</h2>
-    <div class="sub">🖤 Black-only Rewards</div>
-    <div class="sub">💀 Extreme Mode</div>
-</div>
+// Top-Up
+function topUpStars(amount){
+    star += amount;
+    totalProfit += amount;
+    document.getElementById('starCount').innerText = star;
+    document.getElementById('profitStars').innerText = totalProfit;
+    alert(`✅ Top-Up Successful! +${amount} ⭐`);
+}
 
-<!-- 9 -->
-<div class="category">
-    <h2>🌟 Galaxy Leaderboard</h2>
-    <div class="sub">🥇 Top Miners</div>
-    <div class="sub">💠 Weekly Rewards</div>
-</div>
+// Buy NFT
+function buyNFT(name, price){
+    if(star>=price){
+        star -= price;
+        userNFTs += 1;
+        document.getElementById('starCount').innerText = star;
+        document.getElementById('totalNFTs').innerText = userNFTs;
+        showAnimation('buyAnim');
+    } else {
+        alert("❌ Not enough Stars!");
+    }
+}
+
+// Sell NFT
+function sellNFT(name, price){
+    if(userNFTs>0){
+        star += price;
+        userNFTs -=1;
+        document.getElementById('starCount').innerText = star;
+        document.getElementById('totalNFTs').innerText = userNFTs;
+        showAnimation('sellAnim');
+    } else {
+        alert("❌ No NFTs to sell!");
+    }
+}
+
+// Show animation
+function showAnimation(id){
+    const anim = document.getElementById(id);
+    anim.style.display='block';
+    setTimeout(()=>{anim.style.display='none';},1500);
+}
+</script>
 
 </body>
 </html>
