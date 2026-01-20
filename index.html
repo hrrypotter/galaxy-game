@@ -6,269 +6,119 @@
     <title>Galaxy Miner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- CSS STYLES (Design) --- */
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
-
-        :root {
-            --primary-red: #d10000;
-            --card-red: #ff3333;
-            --card-orange: #ff9900;
-            --card-purple: #9933ff;
-            --bg-dark: #2c0000;
-            --text-white: #ffffff;
-        }
-
         body {
-            background-color: var(--bg-dark);
-            background-image: linear-gradient(180deg, #4a0000 0%, #1a0000 100%);
-            color: var(--text-white);
-            font-family: 'Fredoka', sans-serif;
+            background: #b30000; /* Dark Red Background */
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            padding-bottom: 80px; /* Bottom menu ke liye jagah */
-            user-select: none; /* Text selection band */
-            -webkit-tap-highlight-color: transparent;
+            color: white;
+            padding-bottom: 80px;
         }
 
-        /* Header (Top Bar) */
+        /* Top Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            background: rgba(0,0,0,0.1);
         }
 
-        .stats-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .stat-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
+        .user-info { display: flex; align-items: center; gap: 10px; font-weight: bold; }
+        .balance-badges { display: flex; gap: 8px; }
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 13px;
             display: flex;
             align-items: center;
             gap: 5px;
-            font-weight: 600;
         }
 
-        .stat-badge i { color: gold; }
+        /* Main Buttons (Cards) */
+        .container { padding: 15px; display: flex; flex-direction: column; gap: 12px; }
 
-        /* Main Content Area */
-        .container {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        /* Game Cards (Inventory, Roulette, etc.) */
         .card {
-            border-radius: 20px;
+            background: linear-gradient(90deg, #ff4d4d, #d10000);
+            border-radius: 15px;
             padding: 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
             cursor: pointer;
-            transition: transform 0.1s;
         }
 
-        .card:active { transform: scale(0.98); }
+        .card h3 { margin: 0; font-size: 22px; font-style: italic; font-weight: 900; }
+        .card p { margin: 5px 0 0; font-size: 11px; color: #ffd1d1; }
+        
+        .card img { width: 70px; height: 70px; }
 
-        .card h3 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 800;
-            font-style: italic;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-        }
+        .yellow-card { background: linear-gradient(90deg, #ffaa00, #ff8800); }
+        .purple-card { background: linear-gradient(90deg, #aa33ff, #8800cc); }
+        .green-card { background: linear-gradient(90deg, #00cc66, #00994d); }
 
-        .card p {
-            margin: 5px 0 0;
-            font-size: 12px;
-            opacity: 0.9;
-            z-index: 2;
-        }
-
-        /* Card Colors */
-        .bg-red { background: linear-gradient(135deg, #ff4d4d, #b30000); }
-        .bg-orange { background: linear-gradient(135deg, #ffbb33, #ff8800); }
-        .bg-purple { background: linear-gradient(135deg, #cc66ff, #9900cc); }
-        .bg-green { background: linear-gradient(135deg, #00cc66, #008040); }
-
-        /* Card Icons (Right Side) */
-        .card-icon {
-            font-size: 50px;
-            color: rgba(255,255,255,0.8);
-            position: absolute;
-            right: 20px;
-            bottom: -10px;
-            transform: rotate(-10deg);
-            z-index: 1;
-        }
-
-        /* Floating Badge (e.g., NEW!) */
-        .badge {
-            background: yellow;
-            color: black;
-            padding: 2px 8px;
-            border-radius: 5px;
-            font-size: 10px;
-            font-weight: bold;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-        }
-
-        /* Bottom Navigation Bar */
+        /* Bottom Menu */
         .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #111;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            border-top: 2px solid #333;
-            z-index: 100;
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #1a1a1a; display: flex; justify-content: space-around;
+            padding: 10px 0; border-top: 1px solid #333;
         }
 
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #777;
-            font-size: 10px;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .nav-item i {
-            font-size: 20px;
-            margin-bottom: 2px;
-        }
-
-        .nav-item.active {
-            color: white;
-        }
-
-        /* Snow Effect (Optional Winter Theme) */
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            color: #fff;
-            font-size: 10px;
-            animation: fall linear infinite;
-            z-index: 0;
-            opacity: 0.5;
-        }
-        @keyframes fall { to { transform: translateY(100vh); } }
-
+        .nav-item { display: flex; flex-direction: column; align-items: center; color: #888; font-size: 10px; }
+        .nav-item.active { color: white; }
+        .nav-item i { font-size: 20px; margin-bottom: 2px; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div style="font-weight:bold; color:#ff4d4d;"> <i class="fa-solid fa-arrow-left"></i> Back</div>
-        <div class="stats-container">
-            <div class="stat-badge">
-                <i class="fa-solid fa-ticket"></i> 2
-            </div>
-            <div class="stat-badge">
-                <i class="fa-solid fa-star"></i> 500
-            </div>
+        <div class="user-info"><i class="fa-solid fa-arrow-left"></i> Galaxy Miner</div>
+        <div class="balance-badges">
+            <div class="badge"><i class="fa-solid fa-star" style="color:gold;"></i> 123</div>
+            <div class="badge"><i class="fa-solid fa-ticket" style="color:orange;"></i> 2</div>
         </div>
     </div>
 
     <div class="container">
-        
-        <div class="card bg-red" onclick="alert('Inventory Locked!')">
-            <div>
-                <h3>INVENTORY</h3>
-            </div>
-            <i class="fa-solid fa-box-open card-icon"></i>
-        </div>
+        <div class="card" onclick="openPage('inventory')">
+            <h3>INVENTORY</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/2859/2859731.png"> </div>
 
-        <div class="card bg-orange" onclick="alert('Spinning Wheel...')">
+        <div class="card yellow-card" onclick="openPage('spin')">
             <div>
                 <h3>ROULETTE</h3>
-                <p>FREE SPIN IN: 23:23:50</p>
+                <p>FREE SPIN IN: 10:30:44</p>
             </div>
-            <i class="fa-solid fa-dharmachakra card-icon"></i>
-        </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/8157/8157777.png"> </div>
 
-        <div class="card bg-green" onclick="alert('Minecraft Mode!')">
+        <div class="card green-card">
+            <h3>MINECRAFT</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/4812/4812581.png"> </div>
+
+        <div class="card purple-card">
             <div>
-                <h3>MINECRAFT</h3>
-                <span class="badge">NEW!</span>
+                <h3>GIVEAWAYS</h3>
+                <p>GET A GIFT FOR FREE</p>
             </div>
-            <i class="fa-solid fa-cube card-icon"></i>
-        </div>
-
-        <div class="card bg-purple" onclick="alert('50/50 Game!')">
-            <div>
-                <h3>RUSSIAN</h3>
-                <p>ROULETTE 50/50</p>
-            </div>
-            <i class="fa-solid fa-skull card-icon"></i>
-        </div>
-
+            <img src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png"> </div>
     </div>
 
     <div class="bottom-nav">
-        <div class="nav-item active">
-            <i class="fa-solid fa-gamepad"></i>
-            <span>Main</span>
-        </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-list-check"></i>
-            <span>Tasks</span>
-        </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-dharmachakra"></i>
-            <span>Spin</span>
-        </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-shop"></i>
-            <span>Shop</span>
-        </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-            <span>History</span>
-        </div>
+        <div class="nav-item active"><i class="fa-solid fa-clock"></i><span>Main</span></div>
+        <div class="nav-item"><i class="fa-solid fa-list"></i><span>Tasks</span></div>
+        <div class="nav-item"><i class="fa-solid fa-dharmachakra"></i><span>Spin</span></div>
+        <div class="nav-item"><i class="fa-solid fa-shop"></i><span>Shop</span></div>
+        <div class="nav-item"><i class="fa-solid fa-calendar"></i><span>History</span></div>
     </div>
 
     <script>
-        // Simple Navigation Logic
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
-            });
-        });
-
-        // Snow Effect (Optional - Virus bot jaisa look dene ke liye)
-        function createSnow() {
-            const snow = document.createElement('div');
-            snow.classList.add('snowflake');
-            snow.innerHTML = '•';
-            snow.style.left = Math.random() * window.innerWidth + 'px';
-            snow.style.animationDuration = Math.random() * 3 + 2 + 's';
-            snow.style.fontSize = Math.random() * 10 + 10 + 'px';
-            document.body.appendChild(snow);
-            setTimeout(() => snow.remove(), 5000);
+        function openPage(page) {
+            console.log("Opening " + page);
+            // Hum yahan naye page ka HTML load karenge jo aap batayenge
         }
-        setInterval(createSnow, 100);
     </script>
 </body>
 </html>
