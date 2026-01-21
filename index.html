@@ -3,71 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Miner - Premium Hub</title>
+    <title>Galaxy Miner | Official Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Poppins', sans-serif; background: #050a12; color: #fff; margin: 0; text-align: center; }
-        .header { background: #111b2d; padding: 25px; border-bottom: 2px solid #00d2ff; }
-        .feature-card { background: #16213e; margin: 15px; padding: 20px; border-radius: 15px; text-align: left; border-left: 4px solid #00d2ff; }
-        .mining-zone { background: #1a1a2e; margin: 20px; padding: 30px; border-radius: 25px; border: 2px dashed #ffd700; }
-        .btn { display: block; width: 90%; margin: 15px auto; padding: 15px; border-radius: 10px; border: none; font-weight: bold; text-decoration: none; cursor: pointer; transition: 0.3s; }
-        .btn-boost { background: #ff4757; color: white; }
-        .btn-mine { background: #00d2ff; color: #000; }
-        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #16213e; padding: 30px; border-radius: 20px; z-index: 1000; border: 2px solid #ffd700; width: 80%; }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; }
+        :root { --primary: #00d2ff; --premium: #ffd700; --danger: #ff4757; --bg: #050a12; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 40px; }
+        .header { background: linear-gradient(180deg, #111b2d 0%, #050a12 100%); padding: 40px 20px; text-align: center; border-bottom: 1px solid #1e293b; }
+        
+        /* User Status Card */
+        .status-card { background: #16213e; margin: -30px 20px 20px 20px; padding: 20px; border-radius: 15px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #2d3446; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .status-info h4 { margin: 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .status-info p { margin: 5px 0 0 0; font-weight: bold; font-size: 18px; }
+        .badge-free { color: #94a3b8; border: 1px solid #94a3b8; padding: 2px 10px; border-radius: 20px; font-size: 12px; }
+
+        .container { padding: 0 20px; }
+        .section-title { font-size: 14px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin: 25px 0 15px 5px; font-weight: 800; }
+        
+        /* Features List */
+        .feature-box { background: #0f172a; border-radius: 12px; padding: 18px; margin-bottom: 12px; border: 1px solid #1e293b; transition: 0.3s; }
+        .feature-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .feature-header i { font-size: 20px; color: var(--primary); }
+        .feature-header h3 { margin: 0; font-size: 16px; }
+        .feature-box p { margin: 0; font-size: 13px; color: #94a3b8; line-height: 1.5; }
+        .lock-tag { font-size: 11px; color: var(--premium); background: rgba(255, 215, 0, 0.1); padding: 2px 8px; border-radius: 4px; margin-top: 10px; display: inline-flex; align-items: center; gap: 5px; }
+
+        /* Mining Center */
+        .mining-area { background: radial-gradient(circle at top right, #1e293b, #0f172a); border-radius: 20px; padding: 30px 20px; text-align: center; border: 1px solid #334155; margin-top: 20px; }
+        .mining-icon { font-size: 50px; color: var(--premium); margin-bottom: 15px; filter: drop-shadow(0 0 15px rgba(255,215,0,0.3)); }
+        
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; text-decoration: none; text-align: center; transition: 0.3s; margin-top: 15px; }
+        .btn-boost { background: var(--danger); color: white; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3); }
+        .btn-mine { background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%); color: white; }
+
+        .footer { margin-top: 50px; padding: 20px; text-align: center; color: #475569; font-size: 12px; border-top: 1px solid #1e293b; }
+        
+        /* Modal */
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #111b2d; padding: 30px; border-radius: 20px; z-index: 1000; border: 1px solid var(--premium); width: 80%; text-align: center; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; backdrop-filter: blur(5px); }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>🌌 GALAXY MINER</h1>
-    <p>Music • Management • Earning</p>
+    <h1 style="margin:0; letter-spacing: 3px;">GALAXY MINER</h1>
+    <p style="color: #64748b; font-size: 14px;">The Gold Standard of Telegram Automation</p>
+</div>
+
+<div class="status-card">
+    <div class="status-info">
+        <h4>Current Account Status</h4>
+        <p id="userStatus">Standard User</p>
+    </div>
+    <span class="badge-free">FREE</span>
 </div>
 
 <div class="container">
-    <div class="feature-card">
-        <h3>📢 /all Tag All</h3>
-        <p>Mention everyone in group with one click. Best for announcements!</p>
+    <div class="section-title">Core Ecosystem</div>
+    
+    <div class="feature-box">
+        <div class="feature-header"><i class="fas fa-bullhorn"></i><h3>Broadcasting Tools</h3></div>
+        <p>Utilize the <b>/all</b> command to mention every member. Zero delays, maximum reach.</p>
     </div>
 
-    <div class="feature-card">
-        <h3>🎵 /play Music Player</h3>
-        <p>High-quality music that runs in <b>Background</b> and adds to your <b>Profile</b>.</p>
+    <div class="feature-box">
+        <div class="feature-header"><i class="fas fa-music"></i><h3>Smart Playback</h3></div>
+        <p>High-fidelity background music that integrates with your <b>Telegram Profile</b> seamlessly.</p>
     </div>
 
-    <div class="feature-card">
-        <h3>📥 Video Downloader</h3>
-        <p>Fastest download for <b>YouTube, Insta & TeraBox</b> bypass.</p>
+    <div class="feature-box">
+        <div class="feature-header"><i class="fas fa-file-download"></i><h3>Cloud Downloader</h3></div>
+        <p>Native support for YouTube, Instagram, and TeraBox high-speed bypass.</p>
     </div>
 
-    <div class="mining-zone">
-        <i class="fas fa-hammer fa-3x" style="color: #ffd700;"></i>
-        <h2>Mining Center</h2>
+    <div class="section-title">Earning Hub</div>
+    
+    <div class="mining-area">
+        <i class="fas fa-cube mining-icon"></i>
+        <h2 style="margin:0;">Cloud Mining</h2>
+        <p style="color: #94a3b8; font-size: 13px;">Generate GCoins through our secure servers.</p>
         
-        <a href="https://gplinks.in/api?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" target="_blank" class="btn btn-boost">
-            <i class="fas fa-bolt"></i> VISIT SITE & VIEW ADS (BOOST)
+        <div class="lock-tag"><i class="fas fa-lock"></i> Premium Access Required</div>
+
+        <a href="https://api.gplinks.com/st?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" class="btn btn-boost">
+            <i class="fas fa-rocket"></i> BOOST MINING (WATCH ADS)
         </a>
 
-        <button class="btn btn-mine" onclick="startMining()">
-            <i class="fas fa-gem"></i> START MINING
+        <button class="btn btn-mine" onclick="showLock()">
+            START MINING SESSION
         </button>
     </div>
 </div>
 
+<div class="footer">
+    <p>Copyright © 2001 - 2026 Galaxy Network Inc. All Rights Reserved.</p>
+    <p>Unauthorized duplication is a violation of applicable laws.</p>
+</div>
+
 <div class="overlay" id="overlay"></div>
 <div class="modal" id="modal">
-    <i class="fas fa-crown fa-3x" style="color: #ffd700;"></i>
-    <h2>PREMIUM ONLY!</h2>
-    <p>Mining feature is locked for Free users. Please upgrade to <b>Telegram Premium</b> to start earning GCoin.</p>
-    <button class="btn btn-mine" onclick="closeModal()">CLOSE</button>
+    <i class="fas fa-crown" style="font-size: 40px; color: var(--premium); margin-bottom: 15px;"></i>
+    <h3 style="margin:0; color: white;">UPGRADE TO PREMIUM</h3>
+    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">Our Mining Algorithm requires an active <b>Telegram Premium</b> subscription to authenticate and unlock GCoin rewards.</p>
+    <button class="btn btn-mine" onclick="closeLock()">CLOSE DASHBOARD</button>
 </div>
 
 <script>
-    function startMining() {
+    function showLock() {
         document.getElementById('overlay').style.display = 'block';
         document.getElementById('modal').style.display = 'block';
     }
-    function closeModal() {
+    function closeLock() {
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('modal').style.display = 'none';
     }
