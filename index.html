@@ -9,81 +9,94 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
-        body { background-color: #ffffff; color: #0f172a; font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
-        .premium-card { background: linear-gradient(135deg, #020617 0%, #1e293b 100%); color: white; border-radius: 25px; padding: 50px 20px; text-align: center; border: 4px solid #fbbf24; }
-        .btn-boost { background: #fbbf24; color: #000; font-weight: 900; padding: 20px 50px; border-radius: 12px; display: inline-block; text-decoration: none; font-size: 1.2rem; border-bottom: 5px solid #b45309; }
-        .feature-box { border: 1px solid #e2e8f0; padding: 30px; border-radius: 20px; background: #ffffff; height: 100%; transition: 0.3s; }
-        .command-badge { background: #eef2ff; color: #4338ca; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-weight: 700; border: 1px solid #c7d2fe; }
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Outfit', sans-serif; }
+        .premium-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; border-radius: 24px; padding: 50px 20px; text-align: center; border: 4px solid #fbbf24; }
+        .btn-boost { background: #fbbf24; color: #000; font-weight: 900; padding: 20px 45px; border-radius: 12px; display: inline-block; text-decoration: none; font-size: 1.2rem; border-bottom: 5px solid #b45309; transition: 0.3s; }
+        .btn-boost:active { transform: translateY(4px); border-bottom-width: 2px; }
+        .feature-card { border: 1px solid #e2e8f0; padding: 30px; border-radius: 20px; background: #ffffff; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .command-badge { background: #eef2ff; color: #4338ca; padding: 5px 12px; border-radius: 8px; font-family: monospace; font-weight: 700; border: 1px solid #c7d2fe; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
 
-    <div class="max-w-4xl mx-auto px-5 py-10">
+    <div class="max-w-4xl mx-auto px-5 py-12">
         
-        <div class="premium-card mb-12 shadow-2xl">
-            <h1 class="text-4xl md:text-5xl font-black mb-5 tracking-tighter text-yellow-400">🚀 BOOST MINING SPEED</h1>
-            <p class="text-lg mb-8 text-gray-300">Click the button below to bypass the limit and multiply your mining power instantly!</p>
+        <div class="premium-box mb-12 shadow-2xl">
+            <h1 class="text-4xl md:text-5xl font-black mb-6 tracking-tighter text-yellow-400 italic">🚀 BOOST MINING SPEED</h1>
+            <p class="text-xl mb-10 text-slate-300 font-medium leading-relaxed">Unlock 2x Speed & Premium Features! <br>Complete the <span class="text-white underline">Verification Video Task</span> to activate.</p>
             
-            <a href="https://api.gplinks.com/st?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" target="_blank" class="btn-boost uppercase">
-                 Click to Boost Now
+            <a href="https://api.gplinks.com/st?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" target="_blank" class="btn-boost uppercase tracking-tighter">
+                 🎬 Click to Watch & Unlock
             </a>
             
-            <p class="mt-6 text-xs text-yellow-500 font-bold uppercase tracking-widest italic">
-                *Complete the short task to unlock premium speed.*
+            <p class="mt-8 text-xs text-yellow-500 font-bold uppercase tracking-widest italic opacity-80">
+                *Rewards will be credited after successful task completion.*
             </p>
         </div>
 
-        <h2 class="text-3xl font-black mb-8 text-gray-900 border-b-4 border-indigo-600 inline-block">Bot Features & Commands</h2>
+        <h2 class="text-3xl font-black mb-8 text-slate-900 border-b-4 border-indigo-600 inline-block uppercase tracking-tight">Bot Documentation</h2>
 
-        <div class="space-y-8">
-            
-            <div class="feature-box border-l-8 border-l-indigo-600">
-                <h3 class="text-2xl font-black mb-4 flex items-center">
-                    <i class="fas fa-shield-alt mr-3 text-indigo-600"></i> Force Join Protection
-                </h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    This feature keeps your group safe and secured. No member will be able to send messages until they join your mandatory update channel. It ensures maximum growth for your community.
-                </p>
-                <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
-                    <p class="text-sm font-bold text-yellow-800 uppercase mb-1">Note:</p>
-                    <p class="text-sm text-yellow-700">The Bot must be promoted to **Admin** in your Channel for this feature to work.</p>
-                </div>
-            </div>
-
-            <div class="feature-box border-l-8 border-l-indigo-600">
-                <h3 class="text-2xl font-black mb-4 flex items-center">
-                    <i class="fas fa-bullhorn mr-3 text-indigo-600"></i> Invisible Tagging
-                </h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    The bot can mention all group members instantly without being visible in the chat history. Perfect for announcements.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg border">
-                        <span class="text-sm font-bold">Mention Everyone:</span>
-                        <span class="command-badge">@all</span>
-                    </div>
-                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg border">
-                        <span class="text-sm font-bold">Mention Admins Only:</span>
-                        <span class="command-badge">@admin</span>
-                    </div>
-                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg border">
-                        <span class="text-sm font-bold">Stop Tagging:</span>
-                        <span class="command-badge">/cancel</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-box">
-                <h3 class="text-2xl font-black mb-4 flex items-center">
-                    <i class="fas fa-tools mr-3 text-indigo-600"></i> Admin Setup Tool
-                </h3>
-                <p class="text-gray-600 mb-4">Manage your bot settings, link channels, and configure group behavior in real-time.</p>
+        <div class="feature-card">
+            <h3 class="text-2xl font-black text-indigo-700 mb-4 flex items-center italic">
+                <i class="fas fa-shield-check mr-3"></i> Force Join Protection
+            </h3>
+            <p class="text-slate-600 mb-6 text-lg">Ensure your group growth by locking chat until users join your mandatory channel. Fully configurable for new and existing members.</p>
+            <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100 mb-4">
+                <span class="font-bold text-indigo-900 mr-2 uppercase text-sm">Setup Command:</span>
                 <span class="command-badge">/setup</span>
             </div>
-
+            <p class="text-xs font-bold text-rose-600 uppercase italic">⚠️ Note: Grant Admin permissions to the bot in both Group and Channel.</p>
         </div>
 
-        <footer class="mt-20 py-10 border-t text-center">
-            <p class="text-2xl font-black text-gray-900 tracking-tighter mb-2 italic">Galaxy Miner Brand</p>
-            <p class="text-xs
-                
+        <div class="feature-card">
+            <h3 class="text-2xl font-black text-indigo-700 mb-4 flex items-center italic">
+                <i class="fas fa-at mr-3"></i> Global Tagging System
+            </h3>
+            <p class="text-slate-600 mb-6 text-lg">Mention members instantly with high-speed tagging. Best for urgent announcements and alerts.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-slate-50 p-3 rounded-lg flex justify-between items-center border">
+                    <span class="font-bold text-sm">Tag All:</span>
+                    <span class="command-badge">@all</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-lg flex justify-between items-center border">
+                    <span class="font-bold text-sm">Tag Admins:</span>
+                    <span class="command-badge">@admin</span>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-lg flex justify-between items-center border">
+                    <span class="font-bold text-sm">Stop:</span>
+                    <span class="command-badge">/cancel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="feature-card">
+                <h3 class="font-black text-xl mb-3 uppercase italic"><i class="fas fa-download mr-2"></i> Media Downloader</h3>
+                <p class="text-sm text-slate-500">Supports Instagram Reels, YouTube (All Formats), and Facebook Video Downloads.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="font-black text-xl mb-3 uppercase italic"><i class="fas fa-coins mr-2"></i> TeraBox Management</h3>
+                <p class="text-sm text-slate-500">Auto-convert TeraBox links into direct monetized download links instantly.</p>
+            </div>
+        </div>
+
+        <div class="feature-card bg-indigo-900 text-white border-none py-10">
+            <h3 class="text-3xl font-black mb-6 text-center italic uppercase">How to Get Started?</h3>
+            <div class="space-y-4 max-w-md mx-auto">
+                <p class="flex items-center text-lg"><span class="font-black text-yellow-400 mr-3">1.</span> Add @GalaxyMinerBot to your group.</p>
+                <p class="flex items-center text-lg"><span class="font-black text-yellow-400 mr-3">2.</span> Grant Admin permissions to the bot.</p>
+                <p class="flex items-center text-lg"><span class="font-black text-yellow-400 mr-3">3.</span> Run <span class="command-badge ml-2">/setup</span> in the group.</p>
+                <p class="flex items-center text-lg"><span class="font-black text-yellow-400 mr-3">4.</span> Complete the Video Task to Unlock 2x Speed.</p>
+            </div>
+        </div>
+
+        <footer class="mt-20 py-16 border-t text-center">
+            <p class="text-3xl font-black text-slate-900 tracking-tighter uppercase mb-2 italic">Galaxy Miner Brand</p>
+            <p class="text-sm text-slate-400 font-bold tracking-widest uppercase italic">
+                Copyright ©️ 2001 Galaxy Miner Brand • All Rights Reserved
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
