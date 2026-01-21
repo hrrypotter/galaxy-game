@@ -4,66 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <title>Galaxy Miner - Bot Guide</title>
+    <title>Galaxy Miner - Official Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
         body { background-color: #ffffff; color: #0f172a; font-family: 'Outfit', sans-serif; }
-        .boost-box { background: #0f172a; color: white; border-radius: 15px; padding: 30px 20px; text-align: center; border: 2px solid #fbbf24; }
-        .btn-boost { background: #fbbf24; color: #000; font-weight: 800; padding: 12px 30px; border-radius: 8px; display: inline-block; text-decoration: none; font-size: 1rem; }
-        .info-card { border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; background: #f8fafc; margin-bottom: 15px; }
-        .cmd-text { background: #e2e8f0; color: #1e293b; padding: 2px 6px; border-radius: 4px; font-weight: 700; font-size: 0.85rem; }
+        .boost-section { background: #0f172a; color: white; border-radius: 12px; padding: 25px; text-align: center; border: 2px solid #fbbf24; margin-bottom: 20px; }
+        .btn-yellow { background: #fbbf24; color: #000; font-weight: 800; padding: 10px 25px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 0.9rem; }
+        .card { border: 1px solid #e2e8f0; padding: 15px; border-radius: 10px; background: #f8fafc; margin-bottom: 15px; }
+        .cmd { background: #e2e8f0; color: #1e293b; padding: 1px 5px; border-radius: 3px; font-weight: 700; font-size: 0.8rem; }
     </style>
 </head>
 <body class="p-4">
 
-    <div class="max-w-lg mx-auto">
+    <div class="max-w-md mx-auto">
         
-        <div class="boost-box mb-8 shadow-lg">
-            <h1 class="text-2xl font-black mb-2 text-yellow-400">BOOST MINING SPEED</h1>
-            <p class="text-xs mb-6 opacity-80">Unlock 2x Speed & Premium Features by completing the task.</p>
-            <a href="https://api.gplinks.com/st?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" target="_blank" class="btn-boost">
-                 WATCH & UNLOCK
-            </a>
+        <div class="boost-section shadow-lg">
+            <h1 class="text-xl font-black mb-1 text-yellow-400">BOOST MINING SPEED</h1>
+            <p class="text-[11px] mb-4 opacity-80">Unlock 2x Speed & Premium Features by completing the video task.</p>
+            <a href="https://api.gplinks.com/st?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" target="_blank" class="btn-yellow">WATCH & UNLOCK</a>
         </div>
 
-        <h2 class="text-lg font-black mb-4 border-b-2 border-indigo-600 inline-block italic">BOT DOCUMENTATION</h2>
+        <h2 class="text-sm font-black mb-3 border-b-2 border-indigo-600 inline-block">BOT RULES & FEATURES</h2>
 
-        <div class="info-card">
-            <h3 class="font-bold text-indigo-700 mb-2">Force Join Setup</h3>
-            <p class="text-xs text-gray-600 leading-relaxed">
-                Send <span class="cmd-text">/setup</span> in group. Enter your channel username. Select "New Member" and click set. 
-                <br><span class="text-rose-500 font-bold italic">*Requirement: Bot must be Admin in your Channel to detect members.*</span>
-            </p>
+        <div class="card">
+            <h3 class="font-bold text-indigo-700 text-sm mb-1">Channel Force Join</h3>
+            <p class="text-[11px] text-gray-600">Send <span class="cmd">/setup</span> in group. Enter channel username and select "New Member". <br><b>*Bot must be Admin in your channel to detect members.*</b></p>
         </div>
 
-        <div class="info-card">
-            <h3 class="font-bold text-indigo-700 mb-2">Invisible Tagging</h3>
-            <p class="text-xs text-gray-600 mb-3">These commands work in groups but stay hidden from the command list:</p>
-            <div class="space-y-2">
-                <p class="text-xs"><b>@all:</b> Tag all group members.</p>
-                <p class="text-xs"><b>@admin:</b> Tag only group admins.</p>
-                <p class="text-xs"><b>/cancel:</b> Stop tagging process instantly.</p>
-                <p class="text-xs"><b>Stop Button:</b> Click the "Stop" button in chat to end process.</p>
-            </div>
-        </div>
-
-        <div class="info-card">
-            <h3 class="font-bold text-indigo-700 mb-2">Media & Music System</h3>
-            <ul class="text-xs text-gray-600 space-y-2">
-                <li>• <b>TeraBox:</b> Just paste the link to download video directly.</li>
-                <li>• <b>Social Media:</b> Paste Instagram or YouTube links for instant download.</li>
-                <li>• <b>Music Player:</b> Send <span class="cmd-text">/play</span> with song name in group.</li>
-                <li>• <b>MP3 Profile:</b> Add songs to your profile for background playback anytime.</li>
+        <div class="card">
+            <h3 class="font-bold text-indigo-700 text-sm mb-1">Invisible Commands</h3>
+            <p class="text-[11px] text-gray-600">Commands work in groups but are hidden from the bot list:</p>
+            <ul class="text-[11px] mt-2 space-y-1">
+                <li>• <span class="cmd">@all</span> - Mentions every group member.</li>
+                <li>• <span class="cmd">@admin</span> - Mentions only group admins.</li>
+                <li>• <span class="cmd">/cancel</span> - Stops the tagging process.</li>
+                <li>• <b>Stop Button:</b> Click "Stop" in chat to end process instantly.</li>
             </ul>
         </div>
 
-        <footer class="mt-10 py-6 border-t text-center">
-            <p class="text-lg font-black text-gray-800 italic uppercase tracking-tighter">Galaxy Miner Brand</p>
-            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                Copyright ©️ 2001 Galaxy Miner Brand • Officially Verified
-            </p>
+        <div class="card">
+            <h3 class="font-bold text-indigo-700 text-sm mb-1">Media & Music</h3>
+            <ul class="text-[11px] text-gray-600 space-y-1">
+                <li>• <b>TeraBox:</b> Paste any link for instant video download.</li>
+                <li>• <b>Socials:</b> Fast downloader for Instagram Reels & YouTube.</li>
+                <li>• <b>Music:</b> Search songs with <span class="cmd">/play</span> in groups.</li>
+                <li>• <b>Profile:</b> Add songs to your profile for background play.</li>
+            </ul>
+        </div>
+
+        <footer class="mt-8 text-center">
+            <p class="text-sm font-black italic uppercase">Galaxy Miner Brand</p>
+            <p class="text-[9px] text-gray-400 font-bold uppercase">Copyright ©️ 2001 Galaxy Miner Brand</p>
         </footer>
 
     </div>
