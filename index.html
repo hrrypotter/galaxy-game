@@ -3,83 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Miner Bot - Official Documentation</title>
+    <title>Galaxy Miner - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #E0E0E0; background-color: #1A1A2E; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: #16213E; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
-        h1, h2, h3 { color: #00FFFF; border-bottom: 2px solid #00FFFF; padding-bottom: 10px; margin-top: 30px; }
-        code { background: #334257; padding: 2px 5px; border-radius: 4px; color: #FFF; }
-        pre { background: #0F3460; padding: 15px; border-radius: 8px; overflow-x: auto; color: #C0C0C0; }
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        .feature-list li::before { content: '🚀'; position: absolute; left: 0; color: #FFD700; }
-        .btn { display: inline-block; background: #00FFFF; color: #16213E; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
-        .warning { background-color: #FFA500; color: #1A1A2E; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0b0e14; color: white; margin: 0; overflow-x: hidden; }
+        .header { background: linear-gradient(45deg, #1e3c72, #2a5298); padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .container { padding: 20px; }
+        
+        /* Features Card */
+        .card { background: #1a1f2b; border-radius: 15px; padding: 15px; margin-bottom: 20px; border: 1px solid #2d3446; }
+        .feature-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 14px; }
+        .feature-item i { color: #00d2ff; margin-right: 15px; font-size: 18px; }
+
+        /* Mining Section */
+        .mining-box { text-align: center; background: radial-gradient(circle, #232937 0%, #11151c 100%); padding: 30px; border-radius: 20px; border: 2px solid #00d2ff; }
+        .mining-icon { font-size: 50px; color: #ffd700; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        /* Buttons */
+        .btn { display: block; width: 100%; padding: 12px; margin-top: 15px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; }
+        .btn-mine { background: #00d2ff; color: #000; }
+        .btn-ad { background: #ff4757; color: #fff; margin-top: 10px; }
+
+        /* Popup */
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1f2b; padding: 25px; border-radius: 15px; z-index: 1000; text-align: center; border: 2px solid #ff4757; width: 80%; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>✨ Galaxy Miner Bot - Official Documentation ✨</h1>
-        <p>Your ultimate Telegram companion for group management, multimedia downloads, and an exclusive mining experience.</p>
 
-        <a href="https://t.me/your_bot_username" target="_blank" class="btn">🚀 Start Galaxy Miner Bot!</a>
-        <a href="https://github.com/yourusername/galaxyminer" target="_blank" class="btn">⭐ View on GitHub</a>
+<div class="header">
+    <h1>🌌 GALAXY MINER</h1>
+    <p>Ultimate Management & Earning Bot</p>
+</div>
 
-        <h2>🌟 Core Features</h2>
-        <ul class="feature-list">
-            <li><h3>🤖 Powerful Group Management</h3>
-                <ul>
-                    <li><code>@all</code>: Mention all members in a group with a single command.</li>
-                    <li><code>@admin</code>: Easily notify all administrators of the group.</li>
-                    <li><code>/cancel</code>: Stop any ongoing mention process instantly.</li>
-                    <li><code>/setup</code>: Configure Force Join for your channel. Automatically mutes users who haven't joined.</li>
-                </ul>
-            </li>
-            <li><h3>📥 High-Speed Multimedia Downloader</h3>
-                <ul>
-                    <li><strong>YouTube & Instagram:</strong> Paste any video link to instantly download and receive the video. (Original link message is deleted for cleanliness)</li>
-                    <li><strong>Music Play:</strong> Use <code>/play [song name]</code> to search and download your favorite songs as MP3s.</li>
-                    <li><strong>TeraBox/Nephobox Links:</strong> Automatically shortens TeraBox/Nephobox links using GPLinks API for easy sharing and monetization. (Original link message is deleted)</li>
-                </ul>
-            </li>
-            <li><h3>⛏️ Exclusive Galaxy Mining (Premium Users)</h3>
-                <ul>
-                    <li><strong>Daily Mining:</strong> Engage in mining once every 24 hours to earn GCoins.</li>
-                    <li><strong>Telegram Premium Required:</strong> Access to mining is exclusive for Telegram Premium subscribers.</li>
-                    <li><strong>Referral Boost:</strong> Use <code>/refer</code> to get your unique referral link. Earn a 10% mining boost for every successful referral!</li>
-                    <li><strong>Ad-Supported Mining:</strong> Mining sessions will include optional ad views, contributing to the bot's sustainability and user rewards.</li>
-                    <li><strong>Mining Dashboard:</strong> Access your mining stats, balance, and referral details via the integrated web dashboard.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2>📜 Commands & Usage</h2>
-        <pre>
-/start - Welcome message and bot features overview.
-/mine - Start your daily mining session (Premium only).
-/refer - Get your unique referral link to boost your earnings.
-/play [song name] - Search and download music.
-/setup - Configure Force Join for your linked channel.
-/cancel - Stop an ongoing mention process.
-        </pre>
-
-        <h2>⚙️ Configuration & Deployment</h2>
-        <p>To deploy your own Galaxy Miner Bot:</p>
-        <ol>
-            <li>Clone this repository.</li>
-            <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
-            <li>Set up <code>API_ID</code>, <code>API_HASH</code>, <code>BOT_TOKEN</code> in your config.</li>
-            <li>Ensure FFMPEG is installed on your server for audio/video processing.</li>
-            <li>The bot needs to be an <strong>admin</strong> in any group it manages and in the linked Force Join channel.</li>
-        </ol>
-
-        <div class="warning">
-            <strong>Important:</strong> Replace <code>https://your-mining-dashboard-link.com</code> and <code>https://your-ads-link.com</code> with your actual URLs in the bot's code and documentation.
-        </div>
-
-        <h2>📞 Support & Community</h2>
-        <p>For questions, support, or to report issues, please contact our support team or join our official Telegram channel.</p>
-        <p>&copy; 2024 Galaxy Miner. All rights reserved.</p>
+<div class="container">
+    <div class="card">
+        <h3><i class="fas fa-tools"></i> Management Features</h3>
+        <div class="feature-item"><i class="fas fa-users"></i> <span><b>Tag All:</b> Group ke har member ko ek baar mein mention karein.</span></div>
+        <div class="feature-item"><i class="fas fa-shield-alt"></i> <span><b>Force Join:</b> Bina channel join kiye koi chat nahi kar payega.</span></div>
     </div>
+
+    <div class="card">
+        <h3><i class="fas fa-download"></i> Downloader Features</h3>
+        <div class="feature-item"><i class="fab fa-youtube"></i> <span>Youtube aur Instagram video high speed mein download karein.</span></div>
+        <div class="feature-item"><i class="fas fa-music"></i> <span><b>/play</b> command se background music enjoy karein.</span></div>
+        <div class="feature-item"><i class="fas fa-link"></i> <span><b>TeraBox:</b> Links ko bypass karke earning links mein badlein.</span></div>
+    </div>
+
+    <div class="mining-box">
+        <i class="fas fa-hammer mining-icon"></i>
+        <h2>Mining Center</h2>
+        <p>Start your 24h mining session now!</p>
+        <button class="btn btn-mine" onclick="checkPremium()">⛏️ START MINING</button>
+        <a href="https://your-ad-link.com" target="_blank" class="btn btn-ad"><i class="fas fa-ad"></i> CLICK TO BOOST (ADS)</a>
+    </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal">
+    <i class="fas fa-crown" style="font-size: 40px; color: #ffd700;"></i>
+    <h2>PREMIUM REQUIRED!</h2>
+    <p>Mining feature sirf <b>Telegram Premium</b> users ke liye hai. Kripya apna account upgrade karein.</p>
+    <button class="btn btn-mine" onclick="closePopup()">OKAY</button>
+</div>
+
+<script>
+    function checkPremium() {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('modal').style.display = 'block';
+    }
+    function closePopup() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+
 </body>
 </html>
