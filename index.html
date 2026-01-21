@@ -3,77 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Miner - Dashboard</title>
+    <title>Galaxy Miner - Official Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0b0e14; color: white; margin: 0; overflow-x: hidden; }
-        .header { background: linear-gradient(45deg, #1e3c72, #2a5298); padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        body { font-family: 'Segoe UI', sans-serif; background: #0b0e14; color: white; margin: 0; overflow-x: hidden; padding-bottom: 50px; }
+        .header { background: linear-gradient(45deg, #1e3c72, #2a5298); padding: 30px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border-bottom: 2px solid #00d2ff; }
         .container { padding: 20px; }
         
-        /* Features Card */
-        .card { background: #1a1f2b; border-radius: 15px; padding: 15px; margin-bottom: 20px; border: 1px solid #2d3446; }
-        .feature-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 14px; }
-        .feature-item i { color: #00d2ff; margin-right: 15px; font-size: 18px; }
+        /* Feature Cards */
+        .card { background: #1a1f2b; border-radius: 15px; padding: 20px; margin-bottom: 25px; border-left: 5px solid #00d2ff; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .card h3 { color: #00d2ff; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 12px; font-size: 14px; line-height: 1.6; display: flex; align-items: flex-start; gap: 10px; }
+        .feature-list li i { color: #ffd700; margin-top: 4px; }
 
-        /* Mining Section */
-        .mining-box { text-align: center; background: radial-gradient(circle, #232937 0%, #11151c 100%); padding: 30px; border-radius: 20px; border: 2px solid #00d2ff; }
-        .mining-icon { font-size: 50px; color: #ffd700; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        /* Mining Center Interface */
+        .mining-section { background: radial-gradient(circle, #232937 0%, #11151c 100%); border-radius: 20px; padding: 30px; text-align: center; border: 2px dashed #00d2ff; margin-top: 10px; }
+        .mining-icon { font-size: 60px; color: #ffd700; margin-bottom: 15px; animation: rotate 4s linear infinite; display: inline-block; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        /* Action Buttons */
+        .btn { display: block; width: 100%; padding: 15px; border-radius: 12px; border: none; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 15px; text-decoration: none; text-align: center; color: white; }
+        .btn-mine { background: linear-gradient(90deg, #00d2ff, #3a7bd5); color: #fff; }
+        .btn-ad { background: #ff4757; font-size: 14px; }
+        .btn:active { transform: scale(0.98); }
 
-        /* Buttons */
-        .btn { display: block; width: 100%; padding: 12px; margin-top: 15px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; }
-        .btn-mine { background: #00d2ff; color: #000; }
-        .btn-ad { background: #ff4757; color: #fff; margin-top: 10px; }
-
-        /* Popup */
-        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1f2b; padding: 25px; border-radius: 15px; z-index: 1000; text-align: center; border: 2px solid #ff4757; width: 80%; }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
+        /* Premium Popup Modal */
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1f2b; padding: 30px; border-radius: 20px; z-index: 1000; text-align: center; border: 2px solid #ff4757; width: 85%; box-shadow: 0 0 30px rgba(255, 71, 87, 0.5); }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; }
+        .modal i { font-size: 50px; color: #ffd700; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>🌌 GALAXY MINER</h1>
-    <p>Ultimate Management & Earning Bot</p>
+    <i class="fas fa-galaxy" style="font-size: 40px; color: #00d2ff;"></i>
+    <h1>GALAXY MINER</h1>
+    <p>Ultimate Management & Earning Hub</p>
 </div>
 
 <div class="container">
     <div class="card">
-        <h3><i class="fas fa-tools"></i> Management Features</h3>
-        <div class="feature-item"><i class="fas fa-users"></i> <span><b>Tag All:</b> Group ke har member ko ek baar mein mention karein.</span></div>
-        <div class="feature-item"><i class="fas fa-shield-alt"></i> <span><b>Force Join:</b> Bina channel join kiye koi chat nahi kar payega.</span></div>
+        <h3><i class="fas fa-shield-alt"></i> Management Features</h3>
+        <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> <span><b>Tag Member (@all):</b> Group ke sabhi members ko turant mention karein taaki koi bhi update miss na ho.</span></li>
+            <li><i class="fas fa-user-lock"></i> <span><b>Force Join System:</b> Bina aapke channel ko join kiye koi bhi member group mein chat nahi kar payega.</span></li>
+        </ul>
     </div>
 
     <div class="card">
-        <h3><i class="fas fa-download"></i> Downloader Features</h3>
-        <div class="feature-item"><i class="fab fa-youtube"></i> <span>Youtube aur Instagram video high speed mein download karein.</span></div>
-        <div class="feature-item"><i class="fas fa-music"></i> <span><b>/play</b> command se background music enjoy karein.</span></div>
-        <div class="feature-item"><i class="fas fa-link"></i> <span><b>TeraBox:</b> Links ko bypass karke earning links mein badlein.</span></div>
+        <h3><i class="fas fa-cloud-download-alt"></i> Downloader & Tools</h3>
+        <ul class="feature-list">
+            <li><i class="fab fa-youtube"></i> <span><b>Multi-Platform:</b> Youtube aur Instagram videos high speed mein download karein.</span></li>
+            <li><i class="fas fa-music"></i> <span><b>Background Music:</b> <code>/play [song]</code> likhein aur music enjoy karein. Ye background mein bhi chalta rahega!</span></li>
+            <li><i class="fas fa-file-alt"></i> <span><b>TeraBox Bypass:</b> TeraBox links ko turant bypass karke earning links mein badlein.</span></li>
+        </ul>
     </div>
 
-    <div class="mining-box">
-        <i class="fas fa-hammer mining-icon"></i>
+    <div class="mining-section">
+        <div class="mining-icon"><i class="fas fa-hammer"></i></div>
         <h2>Mining Center</h2>
-        <p>Start your 24h mining session now!</p>
-        <button class="btn btn-mine" onclick="checkPremium()">⛏️ START MINING</button>
-        <a href="https://your-ad-link.com" target="_blank" class="btn btn-ad"><i class="fas fa-ad"></i> CLICK TO BOOST (ADS)</a>
+        <p style="color: #aaa;">Daily 24-hour mining reward session</p>
+        
+        <a href="https://your-ad-link.com" target="_blank" class="btn btn-ad">
+            <i class="fas fa-eye"></i> VISIT SITE & VIEW ADS (BOOST)
+        </a>
+
+        <button class="btn btn-mine" onclick="showPremiumAlert()">
+            <i class="fas fa-gem"></i> START MINING
+        </button>
     </div>
 </div>
 
 <div class="overlay" id="overlay"></div>
 <div class="modal" id="modal">
-    <i class="fas fa-crown" style="font-size: 40px; color: #ffd700;"></i>
-    <h2>PREMIUM REQUIRED!</h2>
-    <p>Mining feature sirf <b>Telegram Premium</b> users ke liye hai. Kripya apna account upgrade karein.</p>
-    <button class="btn btn-mine" onclick="closePopup()">OKAY</button>
+    <i class="fas fa-crown"></i>
+    <h2 style="color: #ff4757;">PREMIUM REQUIRED</h2>
+    <p>Mining feature unlock karne ke liye <b>Telegram Premium</b> hona zaroori hai. Kripya premium charge pay karein ya upgrade karein.</p>
+    <button class="btn btn-mine" onclick="closeAlert()">I UNDERSTAND</button>
 </div>
 
 <script>
-    function checkPremium() {
+    function showPremiumAlert() {
         document.getElementById('overlay').style.display = 'block';
         document.getElementById('modal').style.display = 'block';
     }
-    function closePopup() {
+    function closeAlert() {
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('modal').style.display = 'none';
     }
