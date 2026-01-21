@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy Miner - Documentation</title>
+    <meta name="google" content="notranslate"> <title>Galaxy Miner - Premium Documentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,32 +11,27 @@
         .sidebar { height: 100vh; width: 260px; position: fixed; border-right: 1px solid #f1f5f9; background: #fafafa; overflow-y: auto; }
         .main-content { margin-left: 260px; padding: 40px; }
         @media (max-width: 768px) { .sidebar { display: none; } .main-content { margin-left: 0; padding: 20px; } }
-        .mining-card { background: linear-gradient(135deg, #020617 0%, #1e293b 100%); color: white; border-radius: 24px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .feature-item { border: 1px solid #e2e8f0; padding: 25px; border-radius: 16px; background: #ffffff; transition: 0.3s; }
-        .feature-item:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
-        .command-badge { background: #f8fafc; color: #334155; padding: 4px 12px; border-radius: 8px; font-family: 'Courier New', monospace; font-weight: 700; border: 1px solid #e2e8f0; font-size: 0.9rem; }
-        .btn-boost { background: #fbbf24; color: #000; font-weight: 800; padding: 20px 45px; border-radius: 12px; display: inline-block; transition: 0.3s; text-decoration: none; border: none; }
-        .btn-boost:hover { transform: scale(1.02); background: #f59e0b; box-shadow: 0 0 30px rgba(251, 191, 36, 0.4); }
-        .section-title { font-size: 1.6rem; font-weight: 800; color: #1e293b; margin-bottom: 24px; display: flex; align-items: center; }
+        .mining-card { background: linear-gradient(135deg, #020617 0%, #1e293b 100%); color: white; border-radius: 24px; padding: 40px; }
+        .feature-item { border: 1px solid #e2e8f0; padding: 25px; border-radius: 16px; background: #ffffff; }
+        .command-badge { background: #f8fafc; color: #334155; padding: 4px 12px; border-radius: 8px; font-family: 'Courier New', monospace; font-weight: 700; border: 1px solid #e2e8f0; }
+        .btn-boost { background: #fbbf24; color: #000; font-weight: 800; padding: 20px 45px; border-radius: 12px; display: inline-block; text-decoration: none; }
     </style>
 </head>
 <body>
 
     <div class="sidebar p-8">
         <h2 class="text-2xl font-black text-indigo-600 mb-10 flex items-center">
-            <i class="fas fa-cube mr-3"></i> Home
+            <i class="fas fa-home mr-3"></i> Home
         </h2>
         <nav>
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Interface Language</p>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Available Languages</p>
             <div class="space-y-3">
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇺🇸 <span class="ml-3">English</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇮🇳 <span class="ml-3">Hindi</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇪🇸 <span class="ml-3">Spanish</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇫🇷 <span class="ml-3">French</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇩🇪 <span class="ml-3">German</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇷🇺 <span class="ml-3">Russian</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇯🇵 <span class="ml-3">Japanese</span></a>
-                <a href="#" class="flex items-center p-2 font-medium text-slate-600 hover:text-indigo-600 transition">🇸🇦 <span class="ml-3">Arabic</span></a>
+                <a href="#" class="flex items-center p-2 font-medium text-slate-600">🇺🇸 <span class="ml-3">English</span></a>
+                <a href="#" class="flex items-center p-2 font-medium text-slate-600">🇮🇳 <span class="ml-3">Hindi</span></a>
+                <a href="#" class="flex items-center p-2 font-medium text-slate-600">🇪🇸 <span class="ml-3">Spanish</span></a>
+                <a href="#" class="flex items-center p-2 font-medium text-slate-600">🇫🇷 <span class="ml-3">French</span></a>
+                <a href="#" class="flex items-center p-2 font-medium text-slate-600">🇩🇪 <span class="ml-3">German</span></a>
+                <a href="#" class="flex items-center p-2 font-medium text-slate-600">🇷🇺 <span class="ml-3">Russian</span></a>
             </div>
         </nav>
     </div>
@@ -44,67 +39,63 @@
     <div class="main-content">
         
         <div class="mining-card mb-16 text-center">
-            <h1 class="text-4xl font-black mb-4 tracking-tight">🚀 BOOST MINING SPEED</h1>
-            <p class="text-lg mb-10 text-slate-400 font-medium">Click below to boost your mining speed and unlock all premium future features instantly!</p>
+            <h1 class="text-4xl font-black mb-4">🚀 BOOST MINING SPEED</h1>
+            <p class="text-lg mb-10 text-slate-400">Click below to boost your speed and unlock more premium future features!</p>
             
             <a href="https://api.gplinks.com/st?api=bcda86b30841b6590b7cb3694c608adcfdf23e74&url=https://hrrypotter.github.io/galaxy-game/" target="_blank" class="btn-boost text-xl uppercase tracking-widest">
                 <i class="fas fa-bolt mr-2"></i> Click to Boost & Unlock Premium
             </a>
-            <p class="mt-6 text-sm text-slate-500 font-medium italic">Requirement: Complete the short verification task to activate 2x speed.</p>
+            <p class="mt-6 text-sm text-slate-500 italic">Task required to activate 2x mining performance.</p>
         </div>
 
         <div class="max-w-5xl">
             
             <div class="mb-14">
-                <h2 class="section-title"><i class="fas fa-shield-check mr-3 text-indigo-500"></i> Force Join Protection</h2>
+                <h2 class="text-2xl font-black mb-6 flex items-center"><i class="fas fa-shield-check mr-3 text-indigo-500"></i> Force Join Protection</h2>
                 <div class="feature-item border-l-8 border-l-indigo-600">
-                    <p class="text-slate-600 mb-6 text-lg leading-relaxed">Secure your community by restricting chat access until users join your designated update channel. It ensures 100% organic growth for your channel.</p>
+                    <p class="text-slate-600 mb-6 text-lg">Secure your community by restricting chat access. Users must join your update channel to interact within the group.</p>
                     <div class="flex items-center space-x-4 mb-4">
                         <span class="text-sm font-bold text-slate-900">Setup Command:</span>
                         <span class="command-badge">/setup</span>
                     </div>
-                    <p class="text-xs font-bold text-rose-600 uppercase tracking-widest flex items-center">
-                        <i class="fas fa-info-circle mr-2"></i> Note: Bot must be an Administrator in the Channel.
+                    <p class="text-xs font-bold text-rose-600 uppercase tracking-widest">
+                        <i class="fas fa-info-circle mr-2"></i> Requirement: Bot must be an Administrator in the Channel.
                     </p>
                 </div>
             </div>
 
             <div class="mb-14">
-                <h2 class="section-title"><i class="fas fa-code mr-3 text-indigo-500"></i> Invisible Commands (Group Only)</h2>
+                <h2 class="text-2xl font-black mb-6 flex items-center"><i class="fas fa-code mr-3 text-indigo-500"></i> Invisible Commands (Group Only)</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="feature-item">
-                        <h3 class="font-bold text-slate-900 mb-4 flex items-center">
-                            <i class="fas fa-bullhorn mr-2 text-indigo-400"></i> Tagging System
-                        </h3>
-                        <p class="text-slate-500 text-sm mb-6">Mention members quickly and effectively to keep the engagement high.</p>
+                        <h3 class="font-bold text-slate-900 mb-4">Tagging System</h3>
+                        <p class="text-slate-500 text-sm mb-6">Highly efficient tagging system to alert group members instantly.</p>
                         <div class="space-y-4">
-                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                                <span class="text-sm font-medium">Mention Everyone:</span>
+                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
+                                <span class="text-sm font-medium">Tag All Members:</span>
                                 <span class="command-badge">@all</span>
                             </div>
-                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                                <span class="text-sm font-medium">Mention Admins:</span>
+                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
+                                <span class="text-sm font-medium">Tag Only Admins:</span>
                                 <span class="command-badge">@admin</span>
                             </div>
-                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                                <span class="text-sm font-medium">Stop Tagging:</span>
+                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
+                                <span class="text-sm font-medium">Stop Process:</span>
                                 <span class="command-badge">/cancel</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="feature-item">
-                        <h3 class="font-bold text-slate-900 mb-4 flex items-center">
-                            <i class="fas fa-cog mr-2 text-indigo-400"></i> Bot Configuration
-                        </h3>
-                        <p class="text-slate-500 text-sm mb-6">Manage bot behavior and group settings with professional admin controls.</p>
+                        <h3 class="font-bold text-slate-900 mb-4">Admin Controls</h3>
+                        <p class="text-slate-500 text-sm mb-6">Administrative commands for managing bot settings and utilities.</p>
                         <div class="space-y-4">
-                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
                                 <span class="text-sm font-medium">Configure ForceJoin:</span>
                                 <span class="command-badge">/setup</span>
                             </div>
-                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                                <span class="text-sm font-medium">Download Music:</span>
+                            <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
+                                <span class="text-sm font-medium">Music Player:</span>
                                 <span class="command-badge">/play</span>
                             </div>
                         </div>
@@ -112,6 +103,31 @@
                 </div>
             </div>
 
-            <div class="mb-14">
-                <h2 class="section-title">
-                    
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+                <div class="feature-item text-center">
+                    <i class="fas fa-video text-3xl text-indigo-500 mb-4"></i>
+                    <h3 class="font-black text-sm uppercase">Media Downloader</h3>
+                    <p class="text-xs text-slate-500 mt-2">Insta, YT, FB Support</p>
+                </div>
+                <div class="feature-item text-center">
+                    <i class="fas fa-link text-3xl text-indigo-500 mb-4"></i>
+                    <h3 class="font-black text-sm uppercase">TeraBox Support</h3>
+                    <p class="text-xs text-slate-500 mt-2">Bypass & Shorten</p>
+                </div>
+                <div class="feature-item text-center">
+                    <i class="fas fa-music text-3xl text-indigo-500 mb-4"></i>
+                    <h3 class="font-black text-sm uppercase">MP3 Player</h3>
+                    <p class="text-xs text-slate-500 mt-2">HQ Audio Search</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="mt-24 py-12 border-t border-slate-100 text-center text-slate-400">
+            <p class="text-lg font-black text-slate-800">&copy; 2001 Galaxy Miner Bot. All Rights Reserved.</p>
+            <p class="text-sm mt-1 uppercase tracking-widest">Premium Automation Solution</p>
+        </footer>
+    </div>
+
+</body>
+</html>
