@@ -2,181 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Galaxy Miner</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Miner Bot - Official Documentation</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
-
-        body {
-            background-color: #7a0000; /* Deep Red Theme */
-            background-image: radial-gradient(circle at top, #b30000 0%, #4a0000 100%);
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            padding-bottom: 90px;
-            overflow-x: hidden;
-        }
-
-        /* Top Bar Profile */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .user-section { display: flex; align-items: center; gap: 8px; font-size: 14px; }
-        .currency-section { display: flex; gap: 8px; }
-        .balance-box {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 5px 12px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Main Container */
-        .main-menu {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        /* Virus Bot Style Cards */
-        .menu-card {
-            height: 110px;
-            border-radius: 24px;
-            padding: 0 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            box-shadow: 0 8px 0px rgba(0,0,0,0.2);
-            text-decoration: none;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.1s;
-        }
-
-        .menu-card:active { transform: translateY(4px); box-shadow: 0 4px 0px rgba(0,0,0,0.2); }
-
-        .menu-card h2 {
-            font-size: 26px;
-            margin: 0;
-            font-style: italic;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .menu-card p {
-            margin: 4px 0 0;
-            font-size: 11px;
-            font-weight: bold;
-            opacity: 0.8;
-        }
-
-        /* Galaxy Theme Colors & Stickers */
-        .inventory { background: linear-gradient(to right, #ff4d6d, #c9184a); }
-        .roulette { background: linear-gradient(to right, #ffb703, #fb8500); }
-        .minecraft { background: linear-gradient(to right, #ff4d4d, #b30000); border-bottom: 6px solid #2d6a4f; }
-        .upgrades { background: linear-gradient(to right, #00b4d8, #0077b6); }
-
-        .sticker {
-            width: 90px;
-            height: 90px;
-            filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.4));
-        }
-
-        /* Badge NEW! */
-        .new-badge {
-            background: #fff;
-            color: #ff0000;
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 6px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-        }
-
-        /* Bottom Nav Bar */
-        .nav-bar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #000;
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            border-top: 1px solid #333;
-        }
-
-        .nav-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #666;
-            font-size: 10px;
-            text-decoration: none;
-        }
-
-        .nav-btn.active { color: white; }
-        .nav-btn i { font-size: 22px; margin-bottom: 4px; }
-
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #E0E0E0; background-color: #1A1A2E; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #16213E; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
+        h1, h2, h3 { color: #00FFFF; border-bottom: 2px solid #00FFFF; padding-bottom: 10px; margin-top: 30px; }
+        code { background: #334257; padding: 2px 5px; border-radius: 4px; color: #FFF; }
+        pre { background: #0F3460; padding: 15px; border-radius: 8px; overflow-x: auto; color: #C0C0C0; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .feature-list li::before { content: '🚀'; position: absolute; left: 0; color: #FFD700; }
+        .btn { display: inline-block; background: #00FFFF; color: #16213E; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
+        .warning { background-color: #FFA500; color: #1A1A2E; padding: 15px; border-radius: 8px; margin-top: 20px; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>✨ Galaxy Miner Bot - Official Documentation ✨</h1>
+        <p>Your ultimate Telegram companion for group management, multimedia downloads, and an exclusive mining experience.</p>
 
-    <div class="top-bar">
-        <div class="user-section"><i class="fa-solid fa-chevron-left"></i> Galaxy Miner</div>
-        <div class="currency-section">
-            <div class="balance-box"><i class="fa-solid fa-star" style="color:#ffb703;"></i> 123</div>
-            <div class="balance-box"><i class="fa-solid fa-ticket" style="color:#ff4d6d;"></i> 2</div>
+        <a href="https://t.me/your_bot_username" target="_blank" class="btn">🚀 Start Galaxy Miner Bot!</a>
+        <a href="https://github.com/yourusername/galaxyminer" target="_blank" class="btn">⭐ View on GitHub</a>
+
+        <h2>🌟 Core Features</h2>
+        <ul class="feature-list">
+            <li><h3>🤖 Powerful Group Management</h3>
+                <ul>
+                    <li><code>@all</code>: Mention all members in a group with a single command.</li>
+                    <li><code>@admin</code>: Easily notify all administrators of the group.</li>
+                    <li><code>/cancel</code>: Stop any ongoing mention process instantly.</li>
+                    <li><code>/setup</code>: Configure Force Join for your channel. Automatically mutes users who haven't joined.</li>
+                </ul>
+            </li>
+            <li><h3>📥 High-Speed Multimedia Downloader</h3>
+                <ul>
+                    <li><strong>YouTube & Instagram:</strong> Paste any video link to instantly download and receive the video. (Original link message is deleted for cleanliness)</li>
+                    <li><strong>Music Play:</strong> Use <code>/play [song name]</code> to search and download your favorite songs as MP3s.</li>
+                    <li><strong>TeraBox/Nephobox Links:</strong> Automatically shortens TeraBox/Nephobox links using GPLinks API for easy sharing and monetization. (Original link message is deleted)</li>
+                </ul>
+            </li>
+            <li><h3>⛏️ Exclusive Galaxy Mining (Premium Users)</h3>
+                <ul>
+                    <li><strong>Daily Mining:</strong> Engage in mining once every 24 hours to earn GCoins.</li>
+                    <li><strong>Telegram Premium Required:</strong> Access to mining is exclusive for Telegram Premium subscribers.</li>
+                    <li><strong>Referral Boost:</strong> Use <code>/refer</code> to get your unique referral link. Earn a 10% mining boost for every successful referral!</li>
+                    <li><strong>Ad-Supported Mining:</strong> Mining sessions will include optional ad views, contributing to the bot's sustainability and user rewards.</li>
+                    <li><strong>Mining Dashboard:</strong> Access your mining stats, balance, and referral details via the integrated web dashboard.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>📜 Commands & Usage</h2>
+        <pre>
+/start - Welcome message and bot features overview.
+/mine - Start your daily mining session (Premium only).
+/refer - Get your unique referral link to boost your earnings.
+/play [song name] - Search and download music.
+/setup - Configure Force Join for your linked channel.
+/cancel - Stop an ongoing mention process.
+        </pre>
+
+        <h2>⚙️ Configuration & Deployment</h2>
+        <p>To deploy your own Galaxy Miner Bot:</p>
+        <ol>
+            <li>Clone this repository.</li>
+            <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+            <li>Set up <code>API_ID</code>, <code>API_HASH</code>, <code>BOT_TOKEN</code> in your config.</li>
+            <li>Ensure FFMPEG is installed on your server for audio/video processing.</li>
+            <li>The bot needs to be an <strong>admin</strong> in any group it manages and in the linked Force Join channel.</li>
+        </ol>
+
+        <div class="warning">
+            <strong>Important:</strong> Replace <code>https://your-mining-dashboard-link.com</code> and <code>https://your-ads-link.com</code> with your actual URLs in the bot's code and documentation.
         </div>
+
+        <h2>📞 Support & Community</h2>
+        <p>For questions, support, or to report issues, please contact our support team or join our official Telegram channel.</p>
+        <p>&copy; 2024 Galaxy Miner. All rights reserved.</p>
     </div>
-
-    <div class="main-menu">
-        <div class="menu-card inventory" onclick="console.log('Open Inventory')">
-            <h2>INVENTORY</h2>
-            <img src="https://cdn-icons-png.flaticon.com/512/2859/2859731.png" class="sticker">
-        </div>
-
-        <div class="menu-card roulette" onclick="console.log('Open Roulette')">
-            <div>
-                <h2>ROULETTE</h2>
-                <p>FREE SPIN IN: 10:30:44</p>
-            </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/8157/8157777.png" class="sticker">
-        </div>
-
-        <div class="menu-card minecraft">
-            <div>
-                <h2>MINING</h2>
-                <p>COLLECT CRYSTALS</p>
-                <span class="new-badge">NEW!</span>
-            </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png" class="sticker"> </div>
-
-        <div class="menu-card upgrades">
-            <h2>UPGRADES</h2>
-            <img src="https://cdn-icons-png.flaticon.com/512/4754/4754848.png" class="sticker">
-        </div>
-    </div>
-
-    <nav class="nav-bar">
-        <a href="#" class="nav-btn active"><i class="fa-solid fa-house-chimney"></i><span>Main</span></a>
-        <a href="#" class="nav-btn"><i class="fa-solid fa-list-check"></i><span>Tasks</span></a>
-        <a href="#" class="nav-btn"><i class="fa-solid fa-dharmachakra"></i><span>Spin</span></a>
-        <a href="#" class="nav-btn"><i class="fa-solid fa-store"></i><span>Shop</span></a>
-        <a href="#" class="nav-btn"><i class="fa-solid fa-clock-rotate-left"></i><span>History</span></a>
-    </nav>
-
 </body>
 </html>
