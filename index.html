@@ -10,109 +10,69 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { background-color: #ffffff; color: #0f172a; font-family: 'Inter', sans-serif; }
         .mining-card { background: linear-gradient(135deg, #020617 0%, #1e293b 100%); color: white; border-radius: 24px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .feature-item { border: 1px solid #e2e8f0; padding: 25px; border-radius: 16px; background: #ffffff; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-        .command-badge { background: #f8fafc; color: #334155; padding: 4px 12px; border-radius: 8px; font-family: monospace; font-weight: 700; border: 1px solid #e2e8f0; }
-        .btn-boost { background: #fbbf24; color: #000; font-weight: 800; padding: 18px 40px; border-radius: 12px; display: inline-block; transition: 0.3s; text-decoration: none; }
-        .btn-boost:hover { transform: scale(1.02); background: #f59e0b; }
-        .section-title { font-size: 1.8rem; font-weight: 900; color: #1e293b; margin: 40px 0 20px; display: flex; align-items: center; }
+        .feature-item { border: 1px solid #e2e8f0; padding: 25px; border-radius: 16px; background: #ffffff; transition: 0.3s; }
+        .command-badge { background: #f8fafc; color: #334155; padding: 4px 12px; border-radius: 8px; font-family: monospace; font-weight: 700; border: 1px solid #e2e8f0; font-size: 0.9rem; }
+        .btn-boost { background: #fbbf24; color: #000; font-weight: 800; padding: 20px 45px; border-radius: 12px; display: inline-block; transition: 0.3s; text-decoration: none; border: none; cursor: pointer; }
+        .btn-boost:hover { transform: scale(1.02); background: #f59e0b; box-shadow: 0 0 30px rgba(251, 191, 36, 0.4); }
+        .section-title { font-size: 1.6rem; font-weight: 800; color: #1e293b; margin-bottom: 24px; display: flex; align-items: center; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 md:p-10">
 
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
         
-        <div class="mining-card mb-12 text-center">
-            <h1 class="text-3xl md:text-5xl font-black mb-4 tracking-tight uppercase italic">🚀 BOOST GROUP SPEED</h1>
-            <p class="text-lg mb-8 text-slate-400 font-medium">Click below to boost group performance and unlock all premium features instantly!</p>
+        <div class="mining-card mb-16 text-center">
+            <h1 class="text-4xl font-black mb-4 tracking-tight uppercase italic">🚀 Boost Group Speed</h1>
+            <p class="text-lg mb-10 text-slate-400 font-medium">Click below to boost group performance and unlock all premium features instantly!</p>
             
             <a href="https://gplinks.co/q3EcaMT" target="_blank" rel="noopener noreferrer" class="btn-boost text-xl uppercase tracking-widest">
                 <i class="fas fa-bolt mr-2"></i> CLICK LINK BELOW TO UNLOCK
             </a>
             
-            <p class="mt-6 text-sm text-slate-500 font-medium italic">Requirement: Complete the verification link to activate 2x speed.</p>
+            <p class="mt-6 text-sm text-slate-500 font-medium italic uppercase">Requirement: Complete the verification link to activate 2x speed.</p>
         </div>
 
-        <h2 class="section-title">Channel Force Join</h2>
-        <div class="feature-item border-l-8 border-l-indigo-600">
-            <p class="text-slate-600 mb-6 text-lg italic leading-relaxed">Secure your community by restricting chat access until users join your channel.</p>
-            <div class="bg-slate-50 p-6 rounded-xl mb-4 border border-slate-100">
-                <p class="text-sm font-bold text-slate-900 mb-2">Setup Instructions:</p>
-                <p class="text-sm text-slate-600 leading-loose">
-                    Send <span class="command-badge">/setup</span> > Enter Channel Username > Select <b>"New Member"</b> > Click Set.
+        <div class="mb-14">
+            <h2 class="section-title"><i class="fas fa-shield-check mr-3 text-indigo-500"></i> Channel Force Join</h2>
+            <div class="feature-item border-l-8 border-l-indigo-600">
+                <p class="text-slate-600 mb-6 text-lg leading-relaxed italic">Secure your community by restricting chat access until users join your channel.</p>
+                <div class="bg-slate-50 p-4 rounded-lg mb-4">
+                    <p class="text-sm font-bold text-slate-900 mb-1">Setup Instructions:</p>
+                    <p class="text-xs text-slate-600 italic">Send <span class="command-badge">/setup</span> > Enter Channel Username > Select <b>"New Member"</b> > Click Set.</p>
+                </div>
+                <p class="text-xs font-bold text-rose-600 uppercase tracking-widest flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i> Note: Bot must be an Administrator in your Channel.
                 </p>
             </div>
-            <p class="text-xs font-bold text-rose-600 uppercase flex items-center mt-4">
-                <i class="fas fa-exclamation-circle mr-2 text-base"></i> NOTE: BOT MUST BE AN ADMINISTRATOR IN YOUR CHANNEL.
-            </p>
         </div>
 
-        <div class="flex items-center mt-12 mb-6">
-             <i class="fas fa-code text-indigo-500 text-3xl mr-4"></i>
-             <h2 class="text-3xl font-black text-slate-900">Invisible Commands (Group Only)</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="feature-item">
-                <h3 class="font-bold text-slate-900 mb-6 flex items-center uppercase tracking-wider">
-                    <i class="fas fa-bullhorn mr-3 text-indigo-400"></i> TAGGING SYSTEM
-                </h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
-                        <span class="text-sm font-medium text-slate-600 italic">Mention All:</span>
-                        <span class="command-badge">@all</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
-                        <span class="text-sm font-medium text-slate-600 italic">Mention Admins:</span>
-                        <span class="command-badge">@admin</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
-                        <span class="text-sm font-medium text-slate-600 italic">Stop Tagging:</span>
-                        <span class="command-badge">/cancel</span>
+        <div class="mb-14">
+            <h2 class="section-title"><i class="fas fa-code mr-3 text-indigo-500"></i> Invisible Commands (Group Only)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="feature-item">
+                    <h3 class="font-bold text-slate-900 mb-4 flex items-center uppercase text-sm tracking-tight">
+                        <i class="fas fa-bullhorn mr-2 text-indigo-400"></i> Tagging System
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <span class="text-sm font-medium text-slate-600">Mention All:</span>
+                            <span class="command-badge">@all</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <span class="text-sm font-medium text-slate-600">Mention Admins:</span>
+                            <span class="command-badge">@admin</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <span class="text-sm font-medium text-slate-600">Stop Tagging:</span>
+                            <span class="command-badge">/cancel</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="feature-item">
-                <h3 class="font-bold text-slate-900 mb-6 flex items-center uppercase tracking-wider">
-                    <i class="fas fa-music mr-3 text-indigo-400"></i> MEDIA UTILITIES
-                </h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
-                        <span class="text-sm font-medium text-slate-600 italic">Search Music:</span>
-                        <span class="command-badge">/play</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
-                        <span class="text-sm font-medium text-slate-600 italic">Stop Process:</span>
-                        <span class="command-badge">Use Stop Button</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title"><i class="fas fa-star mr-4 text-indigo-500"></i> Premium Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-16">
-            <div class="feature-item">
-                <i class="fas fa-video text-4xl text-indigo-500 mb-4"></i>
-                <h3 class="font-black text-sm uppercase mb-1">AUTO DOWNLOADER</h3>
-                <p class="text-[10px] text-slate-400 uppercase">INSTAGRAM & YOUTUBE SUPPORT</p>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-box-open text-4xl text-indigo-500 mb-4"></i>
-                <h3 class="font-black text-sm uppercase mb-1">TERABOX DIRECT</h3>
-                <p class="text-[10px] text-slate-400 uppercase">INSTANT VIDEO EXTRACTION</p>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-headphones text-4xl text-indigo-500 mb-4"></i>
-                <h3 class="font-black text-sm uppercase mb-1">MUSIC PROFILE</h3>
-                <p class="text-[10px] text-slate-400 uppercase">BACKGROUND PLAY ENABLED</p>
-            </div>
-        </div>
-
-        <footer class="mt-20 py-10 border-t border-slate-100 text-center">
-            <p class="text-xl font-black text-slate-800 italic uppercase">© 2001 GALAXY MINER BRAND. ALL RIGHTS RESERVED.</p>
-            <p class="text-xs mt-2 text-slate-400 font-bold uppercase tracking-widest">VERIFIED PREMIUM DOCUMENTATION GUIDE</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+                
+                <div class="feature-item">
+                    <h3 class="font-bold text-slate-900 mb-4 flex items-center uppercase text-sm tracking-tight">
+                        <i class="fas fa-music mr-2 text-indigo-400"></i> Media Utilities
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100
+                            
