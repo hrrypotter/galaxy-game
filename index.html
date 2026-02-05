@@ -4,122 +4,264 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>Galaxy Miner - Documentation</title>
+    <title>Galaxy Miner | Official Documentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { background-color: #ffffff; color: #0f172a; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .sidebar { height: 100vh; width: 260px; position: fixed; border-right: 1px solid #f1f5f9; background: #fafafa; overflow-y: auto; z-index: 50; }
-        .main-content { margin-left: 260px; padding: 40px; }
-        @media (max-width: 768px) { .sidebar { display: none; } .main-content { margin-left: 0; padding: 20px; } }
-        .mining-card { background: linear-gradient(135deg, #020617 0%, #1e293b 100%); color: white; border-radius: 24px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .feature-item { border: 1px solid #e2e8f0; padding: 25px; border-radius: 16px; background: #ffffff; transition: 0.3s; margin-bottom: 20px; }
-        .feature-item:hover { border-color: #6366f1; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
-        .command-badge { background: #f8fafc; color: #334155; padding: 4px 12px; border-radius: 8px; font-family: monospace; font-weight: 700; border: 1px solid #e2e8f0; font-size: 0.9rem; }
-        .btn-boost { background: #fbbf24; color: #000; font-weight: 800; padding: 20px 45px; border-radius: 12px; display: inline-block; transition: 0.3s; border: none; cursor: pointer; text-decoration: none; }
-        .btn-boost:hover { transform: scale(1.02); background: #f59e0b; box-shadow: 0 0 30px rgba(251, 191, 36, 0.4); }
-        .section-title { font-size: 1.6rem; font-weight: 800; color: #1e293b; margin-bottom: 24px; display: flex; align-items: center; }
-        .nav-link { display: flex; align-items: center; padding: 12px; font-weight: 500; color: #64748b; border-radius: 8px; transition: 0.2s; }
-        .nav-link:hover { background: #f1f5f9; color: #4f46e5; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        :root {
+            --bg-dark: #020617;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            color: #e2e8f0; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+            background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 100%);
+        }
+
+        /* Sidebar Styling */
+        .sidebar { 
+            height: 100vh; 
+            width: 280px; 
+            position: fixed; 
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-y: auto; 
+            z-index: 50; 
+        }
+
+        .main-content { margin-left: 280px; padding: 40px; }
+
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+
+        /* Card Designs */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -20px var(--accent-glow);
+        }
+
+        .premium-card {
+            background: linear-gradient(135deg, #4338ca 0%, #1e1b4b 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .command-badge {
+            background: rgba(99, 102, 241, 0.1);
+            color: #a5b4fc;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-family: 'Fira Code', monospace;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .btn-boost {
+            background: #f59e0b;
+            color: #000;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 14px;
+            transition: 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-boost:hover {
+            background: #fbbf24;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            color: #94a3b8;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: #fff;
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #22c55e;
+        }
     </style>
 </head>
 <body>
 
-    <div class="sidebar p-8">
-        <h2 class="text-2xl font-black text-indigo-600 mb-10 flex items-center"><i class="fas fa-cube mr-3"></i> Galaxy Bot</h2>
-        <nav class="space-y-2">
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Navigation</p>
-            <a href="#speed" class="nav-link"><i class="fas fa-bolt w-6"></i> Boost Speed</a>
-            <a href="#fjoin" class="nav-link"><i class="fas fa-shield-halved w-6"></i> Force Join</a>
-            <a href="#dl" class="nav-link"><i class="fas fa-download w-6"></i> Downloader</a>
-            <a href="#terabox" class="nav-link"><i class="fas fa-link w-6"></i> TeraBox Earning</a>
-            <a href="#scanner" class="nav-link"><i class="fas fa-search w-6"></i> User Scanner</a>
-            <a href="#tagging" class="nav-link"><i class="fas fa-at w-6"></i> Tagging System</a>
+    <div class="sidebar p-6">
+        <div class="flex items-center gap-3 mb-10 px-2">
+            <div class="bg-indigo-600 p-2 rounded-lg">
+                <i class="fas fa-microchip text-white text-xl"></i>
+            </div>
+            <h2 class="text-xl font-extrabold tracking-tight">GALAXY<span class="text-indigo-500">MINER</span></h2>
+        </div>
+        
+        <nav>
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-2">Control Panel</p>
+            <a href="#speed" class="nav-link"><i class="fas fa-bolt-lightning w-5"></i> Boost Engine</a>
+            <a href="#fjoin" class="nav-link"><i class="fas fa-shield-halved w-5"></i> Force Join</a>
+            <a href="#dl" class="nav-link"><i class="fas fa-cloud-arrow-down w-5"></i> Media Downloader</a>
+            <a href="#terabox" class="nav-link"><i class="fas fa-sack-dollar w-5"></i> TeraBox Profit</a>
+            <a href="#scanner" class="nav-link"><i class="fas fa-fingerprint w-5"></i> User Scanner</a>
+            <a href="#tagging" class="nav-link"><i class="fas fa-tower-broadcast w-5"></i> Smart Tagging</a>
         </nav>
+
+        <div class="mt-10 px-2">
+            <div class="bg-slate-900/50 p-4 rounded-2xl border border-white/5">
+                <p class="text-xs text-slate-400 mb-2 font-medium"><span class="status-dot"></span> System Status</p>
+                <p class="text-[10px] text-slate-500 leading-relaxed">All modules operational. Core version 3.2.0 active.</p>
+            </div>
+        </div>
     </div>
 
     <div class="main-content">
-        <div id="speed" class="mining-card mb-16 text-center">
-            <h1 class="text-4xl font-black mb-4 tracking-tight uppercase">🚀 Boost Bot Performance</h1>
-            <p class="text-lg mb-10 text-slate-400 font-medium">Click below to unlock High-Speed downloading and Premium features!</p>
+        
+        <div id="speed" class="premium-card rounded-[32px] p-8 md:p-12 mb-12 text-center">
+            <div class="relative z-10">
+                <span class="bg-white/10 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block border border-white/10">Premium Access</span>
+                <h1 class="text-4xl md:text-5xl font-black mb-6 tracking-tighter">UNLEASH GALAXY POWER</h1>
+                <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Activate the high-speed processing engine to unlock 4K downloads, instant scanning, and priority support.
+                </p>
+                
+                <a href="https://gplinks.co/q3EcaMT" target="_blank" class="btn-boost inline-flex items-center gap-3 text-lg">
+                    <i class="fas fa-circle-check"></i> VERIFY & ACTIVATE SPEED
+                </a>
+                
+                <p class="mt-8 text-xs text-slate-400 font-medium opacity-70">
+                    <i class="fas fa-info-circle mr-1"></i> Verification via shortlink is required to maintain server clusters.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl">
             
-            <a href="https://gplinks.co/q3EcaMT" 
-               rel="noreferrer" 
-               target="_blank" 
-               class="btn-boost text-xl uppercase tracking-widest">
-                <i class="fas fa-bolt mr-2"></i> Unlock 2x Speed Now
-            </a>
-            
-            <p class="mt-6 text-sm text-slate-500 font-medium italic">Note: Completion of the shortlink is required to verify your session.</p>
+            <div id="fjoin" class="glass-card p-8">
+                <h3 class="section-title"><i class="fas fa-user-lock text-indigo-400"></i> Force Join Pro</h3>
+                <p class="text-slate-400 mb-6 text-sm leading-relaxed">Automate community growth. Restrict group interaction until users join your designated channel.</p>
+                <div class="space-y-3">
+                    <div class="bg-black/20 p-3 rounded-xl border border-white/5 flex justify-between items-center">
+                        <span class="text-xs font-semibold">Config Command</span>
+                        <span class="command-badge">/setup</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dl" class="glass-card p-8">
+                <h3 class="section-title"><i class="fas fa-clapperboard text-pink-400"></i> Media Engine</h3>
+                <p class="text-slate-400 mb-6 text-sm leading-relaxed">Unified downloader for Instagram & Facebook. Supports Reels, Stories, and HD Videos with Audio extraction.</p>
+                <div class="flex gap-4">
+                    <div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-lg">
+                        <i class="fab fa-instagram text-pink-500"></i> INSTAGRAM
+                    </div>
+                    <div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-lg">
+                        <i class="fab fa-facebook text-blue-500"></i> FACEBOOK
+                    </div>
+                </div>
+            </div>
+
+            <div id="terabox" class="glass-card p-8">
+                <h3 class="section-title"><i class="fas fa-money-bill-trend-up text-emerald-400"></i> Profit Automator</h3>
+                <p class="text-slate-400 mb-6 text-sm leading-relaxed">Turn every TeraBox link shared in your group into a source of income via GPLinks API integration.</p>
+                <div class="flex items-center gap-2 text-xs font-bold text-emerald-500">
+                    <i class="fas fa-bolt"></i> AUTO-CONVERSION ACTIVE
+                </div>
+            </div>
+
+            <div id="scanner" class="glass-card p-8">
+                <h3 class="section-title"><i class="fas fa-shield-circle-check text-slate-400"></i> User OSINT</h3>
+                <p class="text-slate-400 mb-6 text-sm leading-relaxed">Query the Galaxy database to retrieve registration dates, user history, and private identifiers.</p>
+                <div class="bg-black/20 p-3 rounded-xl border border-white/5">
+                    <span class="command-badge">/scan [UserID/Reply]</span>
+                </div>
+            </div>
+
+            <div id="tagging" class="glass-card p-8 md:col-span-2">
+                <h3 class="section-title"><i class="fas fa-bullhorn text-amber-400"></i> Broadcast Matrix</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-black/30 p-4 rounded-2xl border border-white/5">
+                        <p class="text-[10px] uppercase font-bold text-slate-500 mb-2">Mass Tag</p>
+                        <span class="command-badge">@all</span>
+                    </div>
+                    <div class="bg-black/30 p-4 rounded-2xl border border-white/5">
+                        <p class="text-[10px] uppercase font-bold text-slate-500 mb-2">Staff Only</p>
+                        <span class="command-badge">@admin</span>
+                    </div>
+                    <div class="bg-red-500/10 p-4 rounded-2xl border border-red-500/20">
+                        <p class="text-[10px] uppercase font-bold text-red-400 mb-2">Emergency Stop</p>
+                        <span class="command-badge !text-red-400 !border-red-500/30">/cancel</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="max-w-5xl">
-            <div id="fjoin" class="mb-14">
-                <h2 class="section-title"><i class="fas fa-shield-check mr-3 text-indigo-500"></i> Membership Control</h2>
-                <div class="feature-item border-l-8 border-l-indigo-600">
-                    <p class="text-slate-600 mb-4 text-lg">Mute members automatically until they join your update channel.</p>
-                    <div class="bg-slate-50 p-4 rounded-lg">
-                        <span class="command-badge">/setup</span> <span class="text-slate-500 ml-2">to start configuration in groups.</span>
-                    </div>
-                </div>
+        <footer class="mt-24 pb-12 text-center border-t border-white/5 pt-12">
+            <div class="flex justify-center gap-6 mb-6 text-slate-500">
+                <i class="fab fa-telegram-plane hover:text-white cursor-pointer transition"></i>
+                <i class="fas fa-code hover:text-white cursor-pointer transition"></i>
+                <i class="fas fa-book hover:text-white cursor-pointer transition"></i>
             </div>
-
-            <div id="dl" class="mb-14">
-                <h2 class="section-title"><i class="fas fa-video mr-3 text-indigo-500"></i> High-Speed Downloader</h2>
-                <div class="feature-item border-l-8 border-l-pink-500">
-                    <p class="text-slate-600 mb-4">Download videos from **Instagram (Reels/Post)** and **Facebook** directly in the chat.</p>
-                    <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">How to use:</p>
-                    <p class="text-slate-700 bg-slate-50 p-3 rounded mt-2">Simply paste the video link. The bot will automatically detect it and send the Video + Audio file.</p>
-                </div>
-            </div>
-
-            <div id="terabox" class="mb-14">
-                <h2 class="section-title"><i class="fas fa-dollar-sign mr-3 text-green-500"></i> TeraBox Shortener</h2>
-                <div class="feature-item border-l-8 border-l-green-600">
-                    <p class="text-slate-600 mb-4">Every TeraBox link sent in the group is automatically converted to an earning link.</p>
-                    <div class="flex items-center space-x-2 text-sm text-green-700 font-bold">
-                        <i class="fas fa-check-circle"></i> <span>Auto-conversion active</span>
-                        <i class="fas fa-check-circle ml-4"></i> <span>GPLinks Integrated</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="scanner" class="mb-14">
-                <h2 class="section-title"><i class="fas fa-user-secret mr-3 text-slate-700"></i> Galaxy User Scanner</h2>
-                <div class="feature-item border-l-8 border-l-slate-800">
-                    <p class="text-slate-600 mb-4">Fetch deep details about any user in the database including phone status and "First Seen" date.</p>
-                    <div class="bg-slate-50 p-4 rounded-lg flex flex-wrap gap-2">
-                        <span class="command-badge">/scan [Reply to User]</span>
-                        <span class="command-badge">/scan [User_ID]</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tagging" class="mb-14">
-                <h2 class="section-title"><i class="fas fa-bullhorn mr-3 text-orange-500"></i> Smart Tagging</h2>
-                <div class="feature-item border-l-8 border-l-orange-500">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="p-4 bg-slate-50 rounded-xl">
-                            <p class="text-xs font-bold text-slate-400 mb-2 uppercase">Tag All</p>
-                            <span class="command-badge">@all</span>
-                        </div>
-                        <div class="p-4 bg-slate-50 rounded-xl">
-                            <p class="text-xs font-bold text-slate-400 mb-2 uppercase">Tag Admins</p>
-                            <span class="command-badge">@admin</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 p-4 bg-red-50 text-red-700 rounded-xl flex items-center">
-                        <i class="fas fa-stop-circle mr-3"></i>
-                        <span>Use <span class="font-bold">/cancel</span> to stop any active tagging process immediately.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-t border-slate-100 mt-20 pt-10 text-center text-slate-400 text-sm">
-            <p>&copy; 2026 Galaxy Miner Bot. All Rights Reserved.</p>
-        </div>
+            <p class="text-slate-500 text-xs font-medium tracking-widest uppercase">
+                &copy; 2026 GALAXY MINER NETWORK. ALL RIGHTS RESERVED.
+            </p>
+            <p class="text-[10px] text-slate-600 mt-2 font-mono">ENCRYPTED END-TO-END | v3.2.0-STABLE</p>
+        </footer>
     </div>
 
 </body>
