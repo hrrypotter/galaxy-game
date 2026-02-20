@@ -15,18 +15,33 @@
         .sidebar { height: 100vh; width: 280px; position: fixed; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-right: 1px solid rgba(255, 255, 255, 0.05); overflow-y: auto; z-index: 50; }
         .main-content { margin-left: 280px; padding: 40px; }
         @media (max-width: 1024px) { .sidebar { display: none; } .main-content { margin-left: 0; padding: 20px; } }
-        .glass-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; }
         .glass-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px -20px var(--accent-glow); }
         .premium-card { background: linear-gradient(135deg, #4338ca 0%, #1e1b4b 100%); border: 1px solid rgba(255, 255, 255, 0.2); position: relative; overflow: hidden; }
         .premium-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: rotate 10s linear infinite; }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .command-badge { background: rgba(99, 102, 241, 0.1); color: #a5b4fc; padding: 6px 14px; border-radius: 10px; font-family: 'Fira Code', monospace; border: 1px solid rgba(99, 102, 241, 0.2); font-size: 0.85rem; }
+        .command-badge-small { background: rgba(99, 102, 241, 0.1); color: #a5b4fc; padding: 4px 10px; border-radius: 8px; font-family: 'Fira Code', monospace; border: 1px solid rgba(99, 102, 241, 0.2); font-size: 0.75rem; white-space: nowrap; }
         .btn-boost { background: #f59e0b; color: #000; font-weight: 700; padding: 16px 32px; border-radius: 14px; transition: 0.3s; box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3); text-decoration: none; display: inline-flex; }
         .btn-boost:hover { background: #fbbf24; transform: scale(1.05); box-shadow: 0 0 25px rgba(245, 158, 11, 0.5); }
         .section-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
         .nav-link { display: flex; align-items: center; padding: 14px 20px; color: #94a3b8; border-radius: 12px; margin-bottom: 8px; transition: 0.2s; }
         .nav-link:hover { background: rgba(99, 102, 241, 0.15); color: #fff; }
         .status-dot { height: 8px; width: 8px; background: #22c55e; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 10px #22c55e; }
+        
+        /* Illuminati Fixed Styling for Mobile & Desktop */
+        .illuminati-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.3;
+            transition: opacity 0.7s, transform 0.5s;
+            cursor: pointer;
+            margin: 0 auto;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+        .illuminati-container:hover { opacity: 1; transform: scale(1.1); }
     </style>
 </head>
 <body>
@@ -41,9 +56,7 @@
             <a href="#speed" class="nav-link"><i class="fas fa-bolt-lightning w-5"></i> Boost Engine</a>
             <a href="#fjoin" class="nav-link"><i class="fas fa-shield-halved w-5"></i> Force Join</a>
             <a href="#dl" class="nav-link"><i class="fas fa-cloud-arrow-down w-5"></i> Media Downloader</a>
-            <a href="#terabox" class="nav-link"><i class="fas fa-sack-dollar w-5"></i> TeraBox Profit</a>
-            <a href="#scanner" class="nav-link"><i class="fas fa-fingerprint w-5"></i> User Scanner</a>
-            <a href="#tagging" class="nav-link"><i class="fas fa-tower-broadcast w-5"></i> Smart Tagging</a>
+            <a href="#commands" class="nav-link"><i class="fas fa-terminal w-5"></i> System Commands</a>
         </nav>
         <div class="mt-10 px-2">
             <div class="bg-slate-900/50 p-4 rounded-2xl border border-white/5">
@@ -68,26 +81,29 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mb-8">
             
             <div id="fjoin" class="glass-card p-8">
                 <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" class="w-16 h-16 mb-4 opacity-80" alt="Security">
                 <h3 class="section-title"><i class="fas fa-user-lock text-indigo-400"></i> Force Join Pro</h3>
-                <p class="text-slate-400 mb-6 text-sm leading-relaxed">Automatic membership verification. Mutes members until they join your channel.</p>
+                <p class="text-slate-400 mb-2 text-sm leading-relaxed">Automatic membership verification. Mutes members until they join your channel.</p>
+                <p class="text-[11px] text-indigo-300/60 mb-6 italic">Secure your community with automated gatekeeping and spam reduction.</p>
                 <div class="bg-black/20 p-3 rounded-xl border border-white/5 flex justify-between items-center"><span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Command</span><span class="command-badge">/setup</span></div>
             </div>
 
             <div id="dl" class="glass-card p-8">
                 <img src="https://cdn-icons-png.flaticon.com/512/720/720234.png" class="w-16 h-16 mb-4 opacity-80" alt="Download">
                 <h3 class="section-title"><i class="fas fa-clapperboard text-pink-400"></i> Media Engine</h3>
-                <p class="text-slate-400 mb-6 text-sm leading-relaxed">High-speed Instagram Reels & Facebook downloader with native audio support.</p>
+                <p class="text-slate-400 mb-2 text-sm leading-relaxed">High-speed Instagram Reels & Facebook downloader with native audio support.</p>
+                <p class="text-[11px] text-pink-300/60 mb-6 italic">Optimized for ultra-fast processing and original quality preservation.</p>
                 <div class="flex gap-3"><span class="text-[10px] font-bold text-slate-400 bg-white/5 px-3 py-1 rounded-lg">HD VIDEO</span><span class="text-[10px] font-bold text-slate-400 bg-white/5 px-3 py-1 rounded-lg">DIRECT LINK</span></div>
             </div>
 
             <div id="terabox" class="glass-card p-8">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" class="w-16 h-16 mb-4 opacity-80" alt="Profit">
                 <h3 class="section-title"><i class="fas fa-sack-dollar text-emerald-400"></i> TeraBox Profit</h3>
-                <p class="text-slate-400 mb-6 text-sm leading-relaxed">Every link is automatically converted to an earning link via GPLinks API.</p>
+                <p class="text-slate-400 mb-2 text-sm leading-relaxed">Every link is automatically converted to an earning link via GPLinks API.</p>
+                <p class="text-[11px] text-emerald-300/60 mb-6 italic">Monetize your traffic instantly with automatic link shortening and high CPM rates.</p>
                 <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest flex items-center gap-2"><i class="fas fa-check-circle"></i> Revenue Stream Active</div>
             </div>
 
@@ -107,7 +123,65 @@
             </div>
         </div>
 
-        <footer class="mt-24 pb-12 text-center border-t border-white/5 pt-12">
+        <div id="commands" class="glass-card p-8 max-w-6xl mb-12">
+            <h3 class="section-title"><i class="fas fa-terminal text-indigo-400"></i> Core System Commands</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/lock</p>
+                    <p class="text-xs text-slate-400">Restrict Stickers, Gifts & Links</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/unlock</p>
+                    <p class="text-xs text-slate-400">Remove all restrictions</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/mute</p>
+                    <p class="text-xs text-slate-400">Mute a user (Reply to message)</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/unmute</p>
+                    <p class="text-xs text-slate-400">Unmute a user (Reply to message)</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/free</p>
+                    <p class="text-xs text-slate-400">Give specific permissions to a user</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/unfree</p>
+                    <p class="text-xs text-slate-400">Revoke special permissions (Reply)</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/kickme</p>
+                    <p class="text-xs text-slate-400">Self-kick from the group</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/restart</p>
+                    <p class="text-xs text-slate-400">Reboot the bot and clear tasks</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/clearcache</p>
+                    <p class="text-xs text-slate-400">Clean server storage (temp files)</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/minerdel</p>
+                    <p class="text-xs text-slate-400">Delete 1 message (Reply to message)</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/mineralldel</p>
+                    <p class="text-xs text-slate-400">Bulk delete messages from reply</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/start</p>
+                    <p class="text-xs text-slate-400">Restart the bot & see menu</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                    <p class="command-badge-small mb-2 inline-block">/scan</p>
+                    <p class="text-xs text-slate-400">Get user info and Telegram ID</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-24 text-center border-t border-white/5 pt-12">
             <p class="text-slate-500 text-[11px] font-bold uppercase tracking-[0.4em] mb-4">&copy; 2026 GALAXY MINER NETWORK.</p>
             <div class="flex justify-center gap-6 text-slate-600 text-sm mb-6">
                 <i class="fab fa-telegram hover:text-indigo-400 cursor-pointer"></i>
@@ -115,8 +189,8 @@
                 <i class="fas fa-code hover:text-indigo-400 cursor-pointer"></i>
             </div>
             
-            <div class="flex justify-center opacity-30 hover:opacity-100 transition-opacity duration-700 cursor-pointer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/100px-Illuminati_triangle_eye.png" width="25" alt="Eye">
+            <div class="illuminati-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/100px-Illuminati_triangle_eye.png" width="30" alt="Eye">
             </div>
         </footer>
     </div>
