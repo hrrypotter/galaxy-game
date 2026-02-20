@@ -108,12 +108,14 @@
             </div>
 
             <div id="scanner" class="glass-card p-8">
+                <img src="https://cdn-icons-png.flaticon.com/512/2569/2569102.png" class="w-16 h-16 mb-4 opacity-80" alt="Scanner">
                 <h3 class="section-title"><i class="fas fa-search text-slate-400"></i> User Scanner</h3>
                 <p class="text-slate-400 mb-6 text-sm leading-relaxed">Extract deep user history, phone status, and first-seen dates from database.</p>
                 <span class="command-badge">/scan [UserID]</span>
             </div>
 
             <div id="tagging" class="glass-card p-8 md:col-span-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/5602/5602732.png" class="w-16 h-16 mb-4 opacity-80" alt="Tagging">
                 <h3 class="section-title"><i class="fas fa-at text-amber-400"></i> Smart Tagging Matrix</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-black/30 p-4 rounded-xl border border-white/5 text-center"><p class="text-[10px] font-bold text-slate-500 mb-2">EVERYONE</p><span class="command-badge">@all</span></div>
@@ -121,62 +123,59 @@
                     <div class="bg-red-500/10 p-4 rounded-xl border border-red-500/20 text-center"><p class="text-[10px] font-bold text-red-400 mb-2">HALT PROCESS</p><span class="command-badge !text-red-400 !border-red-500/30">/cancel</span></div>
                 </div>
             </div>
-        </div>
 
-        <div id="commands" class="glass-card p-8 max-w-6xl mb-12">
-            <h3 class="section-title"><i class="fas fa-terminal text-indigo-400"></i> Core System Commands</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/lock</p>
-                    <p class="text-xs text-slate-400">Restrict Stickers, Gifts & Links</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/unlock</p>
-                    <p class="text-xs text-slate-400">Remove all restrictions</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/mute</p>
-                    <p class="text-xs text-slate-400">Mute a user (Reply to message)</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/unmute</p>
-                    <p class="text-xs text-slate-400">Unmute a user (Reply to message)</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/free</p>
-                    <p class="text-xs text-slate-400">Give specific permissions to a user</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/unfree</p>
-                    <p class="text-xs text-slate-400">Revoke special permissions (Reply)</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/kickme</p>
-                    <p class="text-xs text-slate-400">Self-kick from the group</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/restart</p>
-                    <p class="text-xs text-slate-400">Reboot the bot and clear tasks</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/clearcache</p>
-                    <p class="text-xs text-slate-400">Clean server storage (temp files)</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/minerdel</p>
-                    <p class="text-xs text-slate-400">Delete 1 message (Reply to message)</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/mineralldel</p>
-                    <p class="text-xs text-slate-400">Bulk delete messages from reply</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/start</p>
-                    <p class="text-xs text-slate-400">Restart the bot & see menu</p>
-                </div>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    <p class="command-badge-small mb-2 inline-block">/scan</p>
-                    <p class="text-xs text-slate-400">Get user info and Telegram ID</p>
+            <div id="commands" class="glass-card p-8 md:col-span-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/9068/9068672.png" class="w-16 h-16 mb-4 opacity-80" alt="Core">
+                <h3 class="section-title"><i class="fas fa-terminal text-indigo-400"></i> Core System Commands</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/lock</p>
+                        <p class="text-[10px] text-slate-500">Restrict Media</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/unlock</p>
+                        <p class="text-[10px] text-slate-500">Remove Rules</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/mute</p>
+                        <p class="text-[10px] text-slate-500">Silence User</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/unmute</p>
+                        <p class="text-[10px] text-slate-500">Allow Chat</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/free</p>
+                        <p class="text-[10px] text-slate-500">Give Access</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/unfree</p>
+                        <p class="text-[10px] text-slate-500">Revoke Access</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/kickme</p>
+                        <p class="text-[10px] text-slate-500">Self Leave</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/restart</p>
+                        <p class="text-[10px] text-slate-500">Reboot Bot</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/clearcache</p>
+                        <p class="text-[10px] text-slate-500">Clean Server</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/minerdel</p>
+                        <p class="text-[10px] text-slate-500">Delete Msg</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/mineralldel</p>
+                        <p class="text-[10px] text-slate-500">Bulk Delete</p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                        <p class="command-badge-small mb-1">/start</p>
+                        <p class="text-[10px] text-slate-500">Main Menu</p>
+                    </div>
                 </div>
             </div>
         </div>
